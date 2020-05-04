@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import SelectTeams from '../views/SelectTeams.vue'
+import HomeSelectTatics from '../views/HomeSelectTatics.vue'
+import AwaySelectTatics from '../views/AwaySelectTatics.vue'
+import Match from '../views/Match.vue'
+import GameDay from '../views/GameDay.vue'
 
 Vue.use(VueRouter)
 
@@ -11,13 +16,31 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/select-teams',
+    name: 'SelectTeams',
+    component: SelectTeams
+  },
+  {
+    path: '/home-team-tatics',
+    name: 'HomeTeamTatics',
+    component: HomeSelectTatics
+  },
+  {
+    path: '/away-team-tatics',
+    name: 'AwayTeamTatics',
+    component: AwaySelectTatics
+  },
+  {
+    path: '/match',
+    name: 'Match',
+    component: Match
+  },
+  {
+    path: '/gameday',
+    name: 'GameDay',
+    component: GameDay
+  },
+  
 ]
 
 const router = new VueRouter({
