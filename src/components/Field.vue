@@ -8,7 +8,7 @@
           :name="player.name"
           :side="drawingSelectFormation.positions[index].side"
           :line="drawingSelectFormation.positions[index].line"
-          photo
+          :photo="teamId"
           :role="player.role"
           :key="index"
           @clickInPlayer="openModal"
@@ -103,7 +103,7 @@ import Player from "@/components/Player";
 
 export default {
   name: "Field",
-  props: ["formation", "players"],
+  props: ["formation", "players","teamId"],
   components: {
     Player
   },

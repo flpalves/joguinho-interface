@@ -1,6 +1,6 @@
 <template>
   <div :class="`player ${line} ${side} ${translateRoleToClassName}`" @click="clickInPlayer">
-    <img alt="Vue logo" src="../assets/kit.png">
+    <img alt="Team Kit" :src="getImgUrl()">
     <span class="name">{{name}}</span>
     <span class="role">{{role}}</span>
   </div>
@@ -71,14 +71,19 @@ export default {
           break;
       }
       return className
-    }
+    },
+    
   },
   methods:{
     clickInPlayer: function(){
       // console.log('click');
       // console.log();
       this.$emit('clickInPlayer', this.$vnode.key);
+    },
+    getImgUrl: function(){
+        return require("../assets/kits/"+this.photo+"-1.png");
     }
+    
   }
 }
 </script>

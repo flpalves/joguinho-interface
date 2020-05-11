@@ -2,6 +2,7 @@ const Flamengo = function(){
     return {
       selectedFormation: "4-4-2Losango",
       name: "Flamengo",
+      teamId: "flamengo-rj",
       colors: {
         primary : 'red',
         secondary : 'black'
@@ -369,6 +370,7 @@ const Fluminense = function(){
     return {
       selectedFormation: "4-4-2Losango",
       name: "Fluminense",
+      teamId: "fluminense-rj",
       colors: {
         primary : 'red',
         secondary : 'green'

@@ -16,7 +16,26 @@
   text-align: center;
   color: #2c3e50;
 }
-
+html{
+    font-size:13px !important;
+    body{
+        background-color:#FFF;
+        color:#eee !important;
+        &:after{
+            content : "";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity : 0.2;
+            z-index: -1;
+            background:url('assets/match-background.jpg') center center no-repeat;
+            background-size: cover;
+        }
+    }
+}
 #nav {
   padding: 30px;
 

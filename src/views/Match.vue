@@ -3,11 +3,15 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h4>{{jogoObj.jogo.tempo.minuto || 0}}' <small>{{jogoObj.jogo.tempo.etapa}}º tempo</small> </h4>
+          <h4>
+            {{jogoObj.jogo.tempo.minuto || 0}}'
+            <small>{{jogoObj.jogo.tempo.etapa}}º tempo</small>
+          </h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
+          <img alt="Team Kit" :src="getImgUrl(this.match.homeTeam.teamId)" />
           <h2>{{match.homeTeam.nome}}</h2>
         </div>
         <div class="col-md-6">
@@ -15,19 +19,26 @@
           <b-button @click="startGame" variant="outline-primary">Começar</b-button>
         </div>
         <div class="col-md-3">
+            <img alt="Team Kit" :src="getImgUrl(this.match.awayTeam.teamId)" />
           <h2>{{match.awayTeam.nome}}</h2>
         </div>
       </div>
       <div class="row">
         <div class="col-md-3">
           <div class="homeGoals">
-            <p v-for="(goal, index) in this.jogoObj.goals.timeHome" :key="index">{{goal.text}} {{goal.minute}}</p>
+            <p
+              v-for="(goal, index) in this.jogoObj.goals.timeHome"
+              :key="index"
+            >{{goal.text}} {{goal.minute}}</p>
           </div>
         </div>
         <div class="col-md-6"></div>
         <div class="col-md-3">
           <div class="awayGoals">
-            <p v-for="(goal, index) in this.jogoObj.goals.timeAway" :key="index">{{goal.text}} {{goal.minute}}</p>
+            <p
+              v-for="(goal, index) in this.jogoObj.goals.timeAway"
+              :key="index"
+            >{{goal.text}} {{goal.minute}}</p>
           </div>
         </div>
       </div>
@@ -48,10 +59,17 @@
           </ul>
         </div>
         <div class="col-md-6">
-          
-          <div v-for="(play,index) in this.jogoObj.plays"  :key="index">
-            <p class="main-play" v-if="index == 0" :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`">{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
-            <p class="play" v-if="index != 0" :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`" >{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
+          <div v-for="(play,index) in this.jogoObj.plays" :key="index">
+            <p
+              class="main-play"
+              v-if="index == 0"
+              :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`"
+            >{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
+            <p
+              class="play"
+              v-if="index != 0"
+              :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`"
+            >{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
           </div>
         </div>
         <div class="col-md-3">
@@ -86,7 +104,8 @@ export default {
           cores: {
             principal: "",
             secundaria: ""
-          }
+          },
+          teamId : ''
         },
         awayTeam: {
           placar: 0,
@@ -96,7 +115,8 @@ export default {
           cores: {
             principal: "",
             secundaria: ""
-          }
+          },
+          teamId : ''
         }
       },
       jogoObj: {}
@@ -339,13 +359,14 @@ export default {
         let dynamicsAtts = this.fillPositionAndAttsByRole(player);
         player.posicao = dynamicsAtts.position;
         player.acoes = dynamicsAtts.atts;
-        player.camisa = index +1 ;
-        player.nome = player.name ;
+        player.camisa = index + 1;
+        player.nome = player.name;
 
         this.match.homeTeam.jogadores.push(player);
         this.match.homeTeam.inicial.push(player);
         this.match.homeTeam.cores.principal = match.homeTeam.colors.primary;
         this.match.homeTeam.cores.secundaria = match.homeTeam.colors.secondary;
+        this.match.homeTeam.teamId = match.homeTeam.teamId;
       });
 
       this.match.homeTeam.nome = match.homeTeam.name;
@@ -354,23 +375,26 @@ export default {
         let dynamicsAtts = this.fillPositionAndAttsByRole(player);
         player.posicao = dynamicsAtts.position;
         player.acoes = dynamicsAtts.atts;
-        player.camisa = index +1;
-        player.nome = player.name ;
+        player.camisa = index + 1;
+        player.nome = player.name;
 
         this.match.awayTeam.jogadores.push(player);
         this.match.awayTeam.inicial.push(player);
         this.match.awayTeam.cores.principal = match.awayTeam.colors.primary;
-        this.match.awayTeam.cores.secundaria = match.awayTeam.colors.secondary; 
+        this.match.awayTeam.cores.secundaria = match.awayTeam.colors.secondary;
+        this.match.awayTeam.teamId = match.awayTeam.teamId;
       });
       this.match.awayTeam.nome = match.awayTeam.name;
 
       this.getMatch();
+    },
+    getImgUrl: function(img) {
+      return require("../assets/logos/" + img + ".png");
     }
   },
   mounted() {
     this.$store.commit("LOADBYSTORAGE");
     this.mountMatch();
-    
   }
 };
 </script>
@@ -387,13 +411,13 @@ ul {
       font-size: 11px;
     }
   }
-};
-p.play{
-  font-size:13px;
-  margin-bottom:5px;
 }
-p.main-play{
-  font-size:16px;
-  padding:15px 10px;
+p.play {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+p.main-play {
+  font-size: 16px;
+  padding: 15px 10px;
 }
 </style>

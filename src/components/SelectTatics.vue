@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <!-- {{selectedTeam}} -->
-        <Field :formation="this.selectedFormation" :players="this.starting11" @click="reload" class="mb-4" />
+        <Field :formation="this.selectedFormation" :players="this.starting11" @click="reload" :teamId="this.club.teamId" class="mb-4" />
       </div>
     </div>
     <div class="row">
@@ -75,6 +75,7 @@
 // @ is an alias to /src
 import draggable from "vuedraggable";
 import Field from "@/components/Field";
+import Formations from "@/engine/Formations.js";
 // import Clubs from "@/mocks/Club.js";
 
 export default {
@@ -85,148 +86,12 @@ export default {
     return {
       
       club : {},
-      formations: [
-        {
-          name: "4-4-2Losango",
-          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Lateral","Ala","Cabeça de Área","Volante","Armador Recuado","Meia Avançado","Segundo Atacante","Centrovante"],
-          positions: [
-            ["Goleiro"],
-            ["Zagueiro Cobertura"],
-            ["Zagueiro Combate"],
-            ["Lateral Recuado", "Lateral", "Ala"],
-            ["Lateral Recuado", "Lateral", "Ala"],
-            ["Cabeça de Área"],
-            [
-              "Volante Recuado",
-              "Volante",
-              "Meia Central",
-              "Armador Recuado",
-              "Armador"
-            ],
-            [
-              "Volante",
-              "Meia Central",
-              "Meia Avançado",
-              "Armador Recuado",
-              "Armador",
-              "Armador Avançado"
-            ],
-            ["Meia Avançado", "Armador Avançado"],
-            ["Segundo Atacante"],
-            ["Centrovante"]
-          ]
-        },
-        {
-          name: "4-4-2Quadrado",
-          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Ala","Ala Ofensivo","Cabeça de Área","Volante Recuado","Armador","Meia Avançado","Segundo Atacante","Centrovante"],
-          positions: [
-            ["Goleiro"],
-            ["Zagueiro Cobertura"],
-            ["Zagueiro Combate"],
-            ["Ala", "Ala Ofensivo"],
-            ["Ala", "Ala Ofensivo"],
-            ["Cabeça de Área"],
-            ["Cabeça de Área", "Volante Recuado"],
-            ["Meia Central", "Armador"],
-            ["Meia Avançado", "Armador Avançado"],
-            ["Segundo Atacante"],
-            ["Centrovante"]
-          ]
-        },
-        {
-          name: "4-4-2Ofensivo",
-          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Lateral","Ala","Volante","Meia Central","Armador","Meia Avançado","Segundo Atacante","Centrovante"],
-          positions: [
-            ["Goleiro"],
-            ["Zagueiro Cobertura"],
-            ["Zagueiro Combate"],
-            ["Lateral", "Ala"],
-            ["Lateral", "Ala"],
-            ["Volante", "Meia Central", "Armador Recuado", "Armador"],
-            ["Volante", "Meia Central", "Armador Recuado", "Armador"],
-            [
-              "Volante",
-              "Meia Central",
-              "Armador Recuado",
-              "Armador",
-              "Meia Avançado",
-              "Armador Avançado"
-            ],
-            ["Meia Avançado", "Armador Avançado"],
-            ["Segundo Atacante"],
-            ["Centrovante"]
-          ]
-        },
-        {
-          name: "4-3-3Padrao",
-          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Lateral","Ala","Volante","Meia Central","Meia Avançado","Segundo Atacante","Segundo Atacante","Centrovante"],
-          positions: [
-            ["Goleiro"],
-            ["Zagueiro Cobertura"],
-            ["Zagueiro Combate"],
-            ["Lateral", "Ala", "Ala Ofensivo"],
-            ["Lateral", "Ala", "Ala Ofensivo"],
-            ["Volante", "Meia Central", "Armador Recuado", "Armador"],
-            [
-              "Volante",
-              "Meia Central",
-              "Meia Avançado",
-              "Armador Recuado",
-              "Armador",
-              "Armador Avançado"
-            ],
-            ["Meia Avançado", "Armador Avançado"],
-            ["Segundo Atacante"],
-            ["Segundo Atacante", "Centrovante"],
-            ["Centrovante"]
-          ]
-        },
-        {
-          name: "3-5-2Alas",
-          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Zagueiro Combate","Ala","Ala Ofensivo","Volante","Meia Central","Meia Avançado","Segundo Atacante","Centrovante"],
-          positions: [
-            ["Goleiro"],
-            ["Zagueiro Cobertura"],
-            ["Zagueiro Combate"],
-            ["Zagueiro Cobertura", "Zagueiro Combate"],
-            ["Lateral", "Ala", "Ala Ofensivo"],
-            ["Lateral", "Ala", "Ala Ofensivo"],
-            ["Volante", "Meia Central", "Armador Recuado", "Armador"],
-            ["Meia Central", "Meia Avançado", "Armador", "Armador Avançado"],
-            ["Meia Avançado", "Armador Avançado"],
-            ["Segundo Atacante"],
-            ["Centrovante"]
-          ]
-        },
-        {
-          name: "3-5-2SemAlas",
-          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Zagueiro Combate","Cabeça de Área","Volante Recuado","Volante","Meia Central","Meia Avançado","Segundo Atacante","Centrovante"],
-          positions: [
-            ["Goleiro"],
-            ["Zagueiro Cobertura"],
-            ["Zagueiro Combate"],
-            ["Zagueiro Cobertura", "Zagueiro Combate"],
-            ["Cabeça de Área"],
-            ["Cabeça de Área", "Volante Recuado", "Volante", "Armador Recuado"],
-            [
-              "Cabeça de Área",
-              "Volante Recuado",
-              "Meia Central",
-              "Volante",
-              "Armador Recuado",
-              "Armador"
-            ],
-            ["Meia Central", "Meia Avançado", "Armador", "Armador Avançado"],
-            ["Meia Avançado", "Armador Avançado"],
-            ["Segundo Atacante"],
-            ["Centrovante"]
-          ]
-        }
-      ],
+      formations: [],
       selectedFormation: '',
       name: '',
       starting11: [],
       beach: [],
+      teamId:''
       
     };
   },
@@ -243,7 +108,8 @@ export default {
         name : this.name,
         starting11 : this.starting11, 
         beach : this.beach,
-        colors : this.colors
+        colors : this.colors,
+        teamId: this.teamId
       };
       this.$emit('saveTatics', team);
       // this.$router.push('/gameday')
@@ -255,6 +121,7 @@ export default {
       this.name = this.club.name;
       this.starting11 = this.club.starting11;
       this.beach = this.club.beach;
+      this.teamId = this.club.teamId;
     }
   },
   watch: {
@@ -265,11 +132,12 @@ export default {
       this.starting11 = this.club.starting11;
       this.beach = this.club.beach;
       this.colors = this.club.colors;
+      this.teamId = this.club.teamId; 
       console.log('eita');
     }
   },
   mounted() {
-
+      this.formations = Formations.formations;
   },
   computed: {
     functionsInSelectedFormation: function() {

@@ -18,7 +18,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <button v-if="homeTeam && awayTeam" @click="goToGameDay">Avançar para o jogo</button>
+          <b-button variant="outline-primary" v-if="homeTeam && awayTeam" @click="goToGameDay">Avançar para o jogo</b-button>
         </div>
       </div>
     </div>
