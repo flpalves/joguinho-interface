@@ -23,7 +23,7 @@
         <div class="col-md-4">
           <b-button-group>
             <b-button variant="outline-danger" to="select-teams"> < Voltar ao menu principal</b-button>
-            <b-button variant="outline-success">Iniciar Partida > </b-button>
+            <b-button variant="outline-success" to="/match">Iniciar Partida > </b-button>
           </b-button-group>
         </div>
         <div class="col-md-4">
@@ -59,19 +59,16 @@ export default {
   methods: {
     getMatch: function() {
       this.match = this.$store.state.match;
-      // console.log(this.match); 
     },
     getFullHomeTeam: function(){
       let teamName = this.match.homeTeam.name;
       let fullTeam = Clubs[teamName]();
-      // console.log(fullTeam);
       this.match.homeTeam = fullTeam;
       this.$store.commit("INSERTHOMETEAM", this.match.homeTeam);
     },
     getFullAwayTeam: function(){
       let teamName = this.match.awayTeam.name;
       let fullTeam = Clubs[teamName]();
-      // console.log(fullTeam);
       this.match.awayTeam = fullTeam; 
       this.$store.commit("INSERTAWAYTEAM", this.match.awayTeam);
     }

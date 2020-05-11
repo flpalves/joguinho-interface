@@ -1,5 +1,5 @@
 <template>
-  <div :class="`player ${line} ${side} ${translateRoleToClassName}`">
+  <div :class="`player ${line} ${side} ${translateRoleToClassName}`" @click="clickInPlayer">
     <img alt="Vue logo" src="../assets/kit.png">
     <span class="name">{{name}}</span>
     <span class="role">{{role}}</span>
@@ -72,12 +72,22 @@ export default {
       }
       return className
     }
+  },
+  methods:{
+    clickInPlayer: function(){
+      // console.log('click');
+      // console.log();
+      this.$emit('clickInPlayer', this.$vnode.key);
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.player{
+  cursor: pointer;
+}
 //             ["Zagueiro Cobertura", "Zagueiro Combate"],
 //             ["Lateral Recuado", "Ala"],
 //             ["Cabeça de Área", "Volante", "Armador"],

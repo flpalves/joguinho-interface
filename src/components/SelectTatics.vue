@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <!-- {{selectedTeam}} -->
-        <Field :formation="this.selectedFormation" :players="this.starting11" @click="reload" />
+        <Field :formation="this.selectedFormation" :players="this.starting11" @click="reload" class="mb-4" />
       </div>
     </div>
     <div class="row">
@@ -64,6 +64,7 @@
             </b-card>
             <b-button block class="mt-4" @click="saveTatics" variant="outline-primary">Salvar</b-button>
             <b-button block class="mt-4" to="/gameday" variant="link">Voltar</b-button>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis dolores accusantium beatae aut, quam laboriosam atque voluptatum esse dignissimos, explicabo eius nisi corporis repellat vel inventore harum eligendi, magni unde!</p>
           </div>
         </div>
       </div>
@@ -87,6 +88,7 @@ export default {
       formations: [
         {
           name: "4-4-2Losango",
+          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Lateral","Ala","Cabeça de Área","Volante","Armador Recuado","Meia Avançado","Segundo Atacante","Centrovante"],
           positions: [
             ["Goleiro"],
             ["Zagueiro Cobertura"],
@@ -116,6 +118,7 @@ export default {
         },
         {
           name: "4-4-2Quadrado",
+          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Ala","Ala Ofensivo","Cabeça de Área","Volante Recuado","Armador","Meia Avançado","Segundo Atacante","Centrovante"],
           positions: [
             ["Goleiro"],
             ["Zagueiro Cobertura"],
@@ -132,6 +135,7 @@ export default {
         },
         {
           name: "4-4-2Ofensivo",
+          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Lateral","Ala","Volante","Meia Central","Armador","Meia Avançado","Segundo Atacante","Centrovante"],
           positions: [
             ["Goleiro"],
             ["Zagueiro Cobertura"],
@@ -155,6 +159,7 @@ export default {
         },
         {
           name: "4-3-3Padrao",
+          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Lateral","Ala","Volante","Meia Central","Meia Avançado","Segundo Atacante","Segundo Atacante","Centrovante"],
           positions: [
             ["Goleiro"],
             ["Zagueiro Cobertura"],
@@ -178,6 +183,7 @@ export default {
         },
         {
           name: "3-5-2Alas",
+          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Zagueiro Combate","Ala","Ala Ofensivo","Volante","Meia Central","Meia Avançado","Segundo Atacante","Centrovante"],
           positions: [
             ["Goleiro"],
             ["Zagueiro Cobertura"],
@@ -194,6 +200,7 @@ export default {
         },
         {
           name: "3-5-2SemAlas",
+          defaultPositions:["Goleiro","Zagueiro Cobertura","Zagueiro Combate","Zagueiro Combate","Cabeça de Área","Volante Recuado","Volante","Meia Central","Meia Avançado","Segundo Atacante","Centrovante"],
           positions: [
             ["Goleiro"],
             ["Zagueiro Cobertura"],
@@ -234,15 +241,16 @@ export default {
       let team = {
         selectedFormation : this.selectedFormation,
         name : this.name,
-        starting11 : this.starting11,
-        beach : this.beach
-      }
+        starting11 : this.starting11, 
+        beach : this.beach,
+        colors : this.colors
+      };
       this.$emit('saveTatics', team);
       // this.$router.push('/gameday')
     },
     reload: function(){
       this.club = this.selectedTeam;
-
+      this.colors = this.colors;
       this.selectedFormation = this.club.selectedFormation;
       this.name = this.club.name;
       this.starting11 = this.club.starting11;
@@ -256,16 +264,12 @@ export default {
       this.name = this.club.name;
       this.starting11 = this.club.starting11;
       this.beach = this.club.beach;
+      this.colors = this.club.colors;
       console.log('eita');
     }
   },
   mounted() {
-    // this.club = this.selectedTeam;
 
-    // this.selectedFormation = this.club.selectedFormation;
-    // this.name = this.club.name;
-    // this.starting11 = this.club.starting11;
-    // this.beach = this.club.beach;
   },
   computed: {
     functionsInSelectedFormation: function() {
