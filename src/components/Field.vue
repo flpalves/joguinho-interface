@@ -15,27 +15,33 @@
         />
       </div>
     </div>
-    <b-modal id="playerAttsModal" ref="playerAttsModal" size="lg" hide-footer>
+    <b-modal
+      id="playerAttsModal"
+      ref="playerAttsModal"
+      class="modalPlayer"
+      size="lg"
+      hide-footer
+      title-tag="div"
+    >
       <template v-slot:modal-title>
-        <h3>{{player.name}}</h3>
-        <p>{{player.posicoes | arrayToText}}</p>
+        <h3 class="text-center">{{player.name}}</h3>
+        <p class="text-center">{{player.posicoes | arrayToText}}</p>
       </template>
       <div class="d-block text-center">
-
         <div class="row">
           <div class="col">
             <table class="table">
               <tr>
                 <th>Carrinho</th>
-                <td>{{player.carrinho}}</td>
+                <td>{{player.habilidades.carrinho}}</td>
               </tr>
               <tr>
                 <th>Força</th>
-                <td>{{player.forca}}</td>
+                <td>{{player.habilidades.forca}}</td>
               </tr>
               <tr>
                 <th>Jogo Aereo</th>
-                <td>{{player.jogoAereo}}</td>
+                <td>{{player.habilidades.jogoAereo}}</td>
               </tr>
             </table>
           </div>
@@ -43,26 +49,26 @@
             <table class="table">
               <tr>
                 <th>Chute</th>
-                <td>{{player.chute}}</td>
+                <td>{{player.habilidades.chute}}</td>
               </tr>
               <tr>
                 <th>Corrida</th>
-                <td>{{player.corrida}}</td>
+                <td>{{player.habilidades.corrida}}</td>
               </tr>
 
               <tr>
                 <th>Drible</th>
-                <td>{{player.drible}}</td>
+                <td>{{player.habilidades.drible}}</td>
               </tr>
 
               <tr>
                 <th>Lançamento</th>
-                <td>{{player.lancamento}}</td>
+                <td>{{player.habilidades.lancamento}}</td>
               </tr>
 
               <tr>
                 <th>Toque</th>
-                <td>{{player.toque}}</td>
+                <td>{{player.habilidades.toque}}</td>
               </tr>
             </table>
           </div>
@@ -70,23 +76,23 @@
             <table class="table">
               <tr>
                 <th>Defende</th>
-                <td>{{player.defende}}</td>
+                <td>{{player.habilidades.defende}}</td>
               </tr>
               <tr>
                 <th>Posicionamento</th>
-                <td>{{player.posicionamento}}</td>
+                <td>{{player.habilidades.posicionamento}}</td>
               </tr>
               <tr>
                 <th>Penalti</th>
-                <td>{{player.penalti}}</td>
+                <td>{{player.habilidades.penalti}}</td>
               </tr>
               <tr>
                 <th>Espalma</th>
-                <td>{{player.espalma}}</td>
+                <td>{{player.habilidades.espalma}}</td>
               </tr>
               <tr>
                 <th>Espalma Fora</th>
-                <td>{{player.espalmaFora}}</td>
+                <td>{{player.habilidades.espalmaFora}}</td>
               </tr>
             </table>
           </div>
@@ -103,7 +109,7 @@ import Player from "@/components/Player";
 
 export default {
   name: "Field",
-  props: ["formation", "players","teamId"],
+  props: ["formation", "players", "teamId"],
   components: {
     Player
   },
@@ -223,7 +229,9 @@ export default {
           ]
         }
       ],
-      player: {}
+      player: {
+        habilidades: {}
+      }
     };
   },
   computed: {
@@ -237,13 +245,12 @@ export default {
   },
   filters: {
     arrayToText: function(value) {
-      let result = '';
-      debugger;
+      let result = "";
       for (let index = 0; index < value.length; index++) {
-        if(index == (value.length - 1) ){
-          result += ' '+value[index];
-        } else{
-          result += ' '+value[index]+',';
+        if (index == value.length - 1) {
+          result += " " + value[index];
+        } else {
+          result += " " + value[index] + ",";
         }
       }
       return result;
@@ -267,10 +274,12 @@ export default {
   width: 100%;
   height: auto;
   position: relative;
+  //   transform: rotate(90deg);
   .pitch {
     width: 100%;
     height: auto;
   }
+
   .players {
     position: absolute;
     width: 100%;
@@ -351,6 +360,16 @@ export default {
           border-radius: 0 0 5px 5px;
         }
       }
+    }
+  }
+}
+.modal {
+  .modal-title {
+    width: 100%;
+    h3,
+    p {
+      color: #323232;
+      text-align: center;
     }
   }
 }

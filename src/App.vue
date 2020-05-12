@@ -9,15 +9,19 @@
 </template>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed:wght@400;500;600;700&display=swap');
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+//   font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Cabin Condensed', sans-serif !important;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 html{
     font-size:13px !important;
+    
     body{
         background-color:#FFF;
         color:#eee !important;

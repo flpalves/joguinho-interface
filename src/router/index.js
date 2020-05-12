@@ -6,6 +6,7 @@ import HomeSelectTatics from '../views/HomeSelectTatics.vue'
 import AwaySelectTatics from '../views/AwaySelectTatics.vue'
 import Match from '../views/Match.vue'
 import GameDay from '../views/GameDay.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ Vue.use(VueRouter)
     path: '/gameday',
     name: 'GameDay',
     component: GameDay
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
   },
   
 ]

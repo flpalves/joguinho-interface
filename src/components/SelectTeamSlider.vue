@@ -71,3 +71,8 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+    .swiper-container{
+        margin-bottom:20px;
+    }
+</style>
