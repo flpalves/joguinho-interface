@@ -1,17 +1,17 @@
 <template>
   <div>
-    <swiper class="swiper" :options="swiperOption" ref="country" @slideChange="onChangeCountry">
+    <swiper class="swiper" :options="swiperOption" ref="country" @slideChange="onChangeCountry" @init="onChangeCountry">
       <swiper-slide v-for="(country, index) in teamsList" :key="index" >{{country.country}}</swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
 
-    <swiper class="swiper" :options="swiperOption" ref="league" @slideChange="onChangeLeague">
+    <swiper class="swiper" :options="swiperOption" ref="league" @slideChange="onChangeLeague" @init="onChangeLeague">
       <swiper-slide v-for="(league, index) in selectedCountry.leagues" :key="index">{{league.leagueName}}</swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper> 
-    <swiper class="swiper" :options="swiperOption" ref="team" @slideChange="onChangeTeam">
+    <swiper class="swiper" :options="swiperOption" ref="team" @slideChange="onChangeTeam" @init="onChangeTeam">
       <swiper-slide v-for="(team, index) in selectedLeague.teams" :key="index">{{team.name}}</swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>

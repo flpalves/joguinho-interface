@@ -252,7 +252,7 @@ const GameEngine = {
             ////debugger;
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
-            var casaAlvo = parseInt(jogadorBola.posicao + 1);
+            var casaAlvo = parseInt(jogadorBola.posicao) + 1;
             var envolvidos = this.buscaJogadorCampo(casaAlvo);
 
 
@@ -264,7 +264,7 @@ const GameEngine = {
 
             //caso não tenha ninguem na casa ao lado, toca pra trás;
             if (envolvidos.atk.length == 0) {
-                casaAlvo = parseInt(jogadorBola.posicao - 1);
+                casaAlvo = parseInt(jogadorBola.posicao) - 1;
                 envolvidos = this.buscaJogadorCampo(casaAlvo);
             }
 
@@ -434,7 +434,6 @@ const GameEngine = {
         },
 
         chute: function () {
-            ////debugger;
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
@@ -443,7 +442,7 @@ const GameEngine = {
             // ////debugger;
             var necessarioDado = null; //numero necessario para a ação ser concluida
 
-            switch (jogadorBola.posicao) {
+            switch (parseInt(jogadorBola.posicao)) {
                 case 5:
                     necessarioDado = 1;
                 case 6:
@@ -463,7 +462,7 @@ const GameEngine = {
 
             if (necessarioDado == 0) {
                 this.printaAcao(jogadorBola.nome + ' isola a bola para frente!');
-                this.rifaBola(parseInt(jogadorBola.posicao + 2));
+                this.rifaBola(parseInt(jogadorBola.posicao) + 2);
                 return false;
             }
 
@@ -495,12 +494,12 @@ const GameEngine = {
             ////debugger;
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
-            var casaAlvo = parseInt(jogadorBola.posicao + 2);
+            var casaAlvo = parseInt(jogadorBola.posicao) + 2;
             var envolvidos = this.buscaJogadorCampo(casaAlvo);
 
             //caso não tenha ninguem 2 casas a frente, toca 1 casa a frente;
             if (envolvidos.atk.length == 0) {
-                casaAlvo = parseInt(jogadorBola.posicao + 1);
+                casaAlvo = parseInt(jogadorBola.posicao) + 1;
                 envolvidos = this.buscaJogadorCampo(casaAlvo);
 
             }
@@ -524,7 +523,7 @@ const GameEngine = {
             //passe perfeito
             this.printaAcao(jogadorBola.nome + ' está com a bola')
             // if(jogadorBola.habilidades.lancamento < this.randomNumber(25)){
-            if (parseInt(jogadorBola.habilidades.lancamento) + this.randomNumber(10) < this.randomNumber(20) + this.getForcaDefesaCarrinho()) {
+            if (parseInt(jogadorBola.habilidades.lancamento) + this.randomNumber(10) < this.randomNumber(30) + this.getForcaDefesaCarrinho()) {
                 /* a ação */
                 this.jogo.posseBola.jogador = jogadorAlvo;
                 this.jogo.posseBola.posicao = timeBola[jogadorAlvo].posicao;
@@ -616,11 +615,11 @@ const GameEngine = {
                     pDef = pDef[this.randomNumber(pDef.length)];
                 }
             }
-            this.printaAcao(pDef.nome + 'divide a bola com ' + pAtk.nome);
+            this.printaAcao(pDef.nome + ' divide a bola com ' + pAtk.nome);
             var dadoAtk = parseInt(pAtk.habilidades.forca) + this.randomNumber(25);
             var dadoDef = parseInt(pDef.habilidades.forca) + this.randomNumber(25);
             if (dadoAtk > dadoDef) {
-                this.printaAcao(pAtk.nome + 'ganha a bola e fica com a bola!');
+                this.printaAcao(pAtk.nome + ' ganha a bola e fica com a bola!');
                 this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'disputa', 'sucesso');
                 this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'disputa', 'falha');
             } else {
@@ -633,7 +632,7 @@ const GameEngine = {
                     this.tiroMeta(goleiro);
                     return true;
                 }
-                this.printaAcao(pDef.nome + 'vence no ombro e rouba a bola!');
+                this.printaAcao(pDef.nome + ' vence no ombro e rouba a bola!');
                 this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'disputa', 'falha');
                 this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'disputa', 'sucesso');
                 this.invertePosse(pDef);
@@ -689,7 +688,7 @@ const GameEngine = {
         },
 
         rifaBola: function (posicaoAtk) {
-            // //debugger;
+            // debugger;
             this.resetarTime();
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
             // //debugger;
@@ -956,7 +955,7 @@ const GameEngine = {
         },
 
         invertePosse: function (jogador) {
-            // //debugger;
+            // debugger;
             this.printaAcao('inverte a posse');
 
             var novoAtkTemp = this.jogo.posseBola.timeDef;

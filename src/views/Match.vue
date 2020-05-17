@@ -361,6 +361,7 @@ export default {
         player.acoes = dynamicsAtts.atts;
         player.camisa = index + 1;
         player.nome = player.name;
+        player.time = "timeHome";
 
         this.match.homeTeam.jogadores.push(player);
         this.match.homeTeam.inicial.push(player);
@@ -377,6 +378,7 @@ export default {
         player.acoes = dynamicsAtts.atts;
         player.camisa = index + 1;
         player.nome = player.name;
+        player.time = "timeAway";
 
         this.match.awayTeam.jogadores.push(player);
         this.match.awayTeam.inicial.push(player);
