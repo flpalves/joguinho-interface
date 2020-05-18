@@ -366,8 +366,7 @@ export default {
 .modal {
   .modal-title {
     width: 100%;
-    h3,
-    p {
+    h3, p {
       color: #323232;
       text-align: center;
     }

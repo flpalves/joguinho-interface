@@ -93,8 +93,4 @@ export default {
 .player{
   cursor: pointer;
 }
-//             ["Zagueiro Cobertura", "Zagueiro Combate"],
-//             ["Lateral Recuado", "Ala"],
-//             ["Cabeça de Área", "Volante", "Armador"],
-//             ["Segundo Atacante","Centrovante"]
 </style>

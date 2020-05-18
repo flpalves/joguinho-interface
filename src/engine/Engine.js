@@ -91,7 +91,8 @@ const GameEngine = {
                     team : this.jogo[this.jogo.posseBola.timeAtk].nome,
                     minute : this.jogo.tempo.minuto,
                     text : jogadorNome,
-                    fieldPosition : this.jogo.posseBola.posicao
+                    fieldPosition : this.jogo.posseBola.posicao,
+                    half: this.jogo.tempo.etapa
                 });
             } else {
                 this.goals.timeAway.push({
@@ -417,7 +418,7 @@ const GameEngine = {
                     timeBola[this.jogo.posseBola.jogador].posicao++;
                     // //debugger;
                     this.jogo.posseBola.posicao = timeBola[this.jogo.posseBola.jogador].posicao;
-                    this.printaAcao(jogadorBola.nome + "avança com a bola");
+                    this.printaAcao(jogadorBola.nome + " avança com a bola");
                     this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'sucesso');
                 } else {
                     // acaoDefesa.funcao();
@@ -520,9 +521,10 @@ const GameEngine = {
             var camisaJogadorAlvo = envolvidos.atk[[this.randomNumber(envolvidos.atk.length)]].camisa;
             var jogadorAlvo = this.getIndexByCamisa(timeBola, camisaJogadorAlvo);
 
-            //passe perfeito
+            
             this.printaAcao(jogadorBola.nome + ' está com a bola')
-            // if(jogadorBola.habilidades.lancamento < this.randomNumber(25)){
+
+            //passe perfeito
             if (parseInt(jogadorBola.habilidades.lancamento) + this.randomNumber(10) < this.randomNumber(30) + this.getForcaDefesaCarrinho()) {
                 /* a ação */
                 this.jogo.posseBola.jogador = jogadorAlvo;
@@ -566,7 +568,41 @@ const GameEngine = {
         },
 
         drible: function () {
-            ////debugger;
+            var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
+            var jogadorBola = timeBola[this.jogo.posseBola.jogador];
+            var casaAlvo = parseInt(jogadorBola.posicao);
+            var defensores = this.buscaJogadorCampoDef(casaAlvo);
+            var jogadorDef = defensores[this.randomNumber(defensores.length)];
+
+            this.printaAcao(jogadorBola.nome + ' ginga pra cima de '+ jogadorDef.nome +' e tenta o drible');
+
+            if( parseInt(jogadorBola.habilidades.drible) + this.randomNumber(20) > parseInt(jogadorDef.habilidades.carrinho) + this.randomNumber(20) ){
+                //caso o drible seja feito, automaticamente faz uma nova ação
+                this.printaAcao(jogadorBola.nome + ' ultrapassa '+ jogadorDef.nome);
+
+                
+                //dependendo da região do campo, o jogador pode fazer uma das seguintes ações
+                var acoesPossiveis = [];
+                if(jogadorBola.posicao <= 5){
+                    acoesPossiveis = [this.toque,this.lancamento, this.corrida, this.falta];
+                }
+                if(jogadorBola.posicao > 5 && jogadorBola.posicao < 8){
+                    acoesPossiveis = [this.toque,this.lancamento, this.corrida, this.chute, this.falta];
+                } else{
+                    acoesPossiveis = [this.chute, this.falta];
+                }
+
+                //sorteia uma das ações possiveis e a executa
+                var acaoRealizada = this.acoesPossiveis[this.randomNumber(this.acoesPossiveis.length)];
+                console.log(acaoRealizada);
+
+                acaoRealizada();
+            } else{
+                //caso não de certo, o time perde a bola
+                this.printaAcao(jogadorDef.nome + ' se antecipa e faz o corte!');
+                this.invertePosse(jogadorDef);
+            }
+
             return false;
         },
 
@@ -584,7 +620,7 @@ const GameEngine = {
                 }
 
             }
-            if (this.randomNumber(23) < parseInt(jogadorDef.habilidades.carrinho)) {
+            if (this.randomNumber(25) < parseInt(jogadorDef.habilidades.carrinho)) {
                 this.printaAcao('carrinho bem executado e ' + jogadorDef.nome + ' rouba a bola');
                 this.mensuraJogada(jogadorDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, jogadorDef.camisa), 'carrinho', 'sucesso');
                 this.invertePosse(jogadorDef);
@@ -733,7 +769,7 @@ const GameEngine = {
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
             this.resetarTime();
 
-            this.proximaJogada();
+            // this.proximaJogada();
             if (jogadorBola.posicao == 8) {
                 this.penalti(jogadorBola);
             } else {
@@ -753,7 +789,7 @@ const GameEngine = {
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
 
             var forcaGoleiro = parseInt(goleiro.habilidades.penalti) + this.randomNumber(15);
-            var forcaChute = parseInt(jogadorBola.habilidades.chute) + this.randomNumber(25);
+            var forcaChute = parseInt(jogadorBola.habilidades.chute) + this.randomNumber(35);
 
             this.printaAcao(jogadorBola.nome + ' vai para o chute');
             if (forcaGoleiro >= forcaChute) {
@@ -796,7 +832,7 @@ const GameEngine = {
 
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
 
-            var forcaGoleiro = parseInt(goleiro.habilidades.defende) + this.randomNumber(25);
+            var forcaGoleiro = parseInt(goleiro.habilidades.defende) + this.randomNumber(30);
             var forcaChute = parseInt(jogadorBola.habilidades.chute) + this.randomNumber(20);
 
             if (forcaGoleiro >= forcaChute) {
@@ -844,13 +880,12 @@ const GameEngine = {
         },
 
         espalma: function (jogadorBola) {
-            ////debugger;
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
 
 
-            var forcaGoleiro = parseInt(goleiro.habilidades.espalma) + this.randomNumber(25);
+            var forcaGoleiro = parseInt(goleiro.habilidades.espalma) + this.randomNumber(30);
 
             var forcaChute = parseInt(jogadorBola.habilidades.chute) + this.randomNumber(20);
 
@@ -865,12 +900,11 @@ const GameEngine = {
         },
 
         espalmaFora: function () {
-            // //debugger;
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
 
-            var forcaGoleiro = parseInt(goleiro.habilidades.espalmaFora) + this.randomNumber(25);
+            var forcaGoleiro = parseInt(goleiro.habilidades.espalmaFora) + this.randomNumber(30);
             var forcaChute = parseInt(jogadorBola.habilidades.chute) + this.randomNumber(20);
 
             if (forcaGoleiro >= forcaChute) {
@@ -883,11 +917,10 @@ const GameEngine = {
 
         },
         cabecada: function (jogadorBola) {
-            ////debugger;
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
 
 
-            var forcaGoleiro = goleiro.habilidades.jogoAereo + this.randomNumber(25);
+            var forcaGoleiro = goleiro.habilidades.jogoAereo + this.randomNumber(30);
             var forcaCabecada = jogadorBola.habilidades.jogoAereo + this.randomNumber(20);
 
 
@@ -948,8 +981,6 @@ const GameEngine = {
                     jogadoresNaCasa.push(element);
                 }
             });
-
-            // console.table(jogadoresNaCasa);
 
             return jogadoresNaCasa;
         },

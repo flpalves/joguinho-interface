@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h4>
+          <h4 v-if="!jogoObj.jogo.encerrado">
             {{jogoObj.jogo.tempo.minuto || 0}}'
             <small>{{jogoObj.jogo.tempo.etapa}}º tempo</small>
           </h4>
@@ -16,10 +16,10 @@
         </div>
         <div class="col-md-6">
           <h1>{{jogoObj.jogo.timeHome.placar}} x {{jogoObj.jogo.timeAway.placar}}</h1>
-          <b-button @click="startGame" variant="outline-primary">Começar</b-button>
+          <b-button v-if="!this.started" @click="startGame" variant="outline-primary">Começar</b-button>
         </div>
         <div class="col-md-3">
-            <img alt="Team Kit" :src="getImgUrl(this.match.awayTeam.teamId)" />
+          <img alt="Team Kit" :src="getImgUrl(this.match.awayTeam.teamId)" />
           <h2>{{match.awayTeam.nome}}</h2>
         </div>
       </div>
@@ -29,7 +29,7 @@
             <p
               v-for="(goal, index) in this.jogoObj.goals.timeHome"
               :key="index"
-            >{{goal.text}} {{goal.minute}}</p>
+            >{{goal.text}} {{goal.minute}}" {{goal.half}}º</p>
           </div>
         </div>
         <div class="col-md-6"></div>
@@ -38,7 +38,7 @@
             <p
               v-for="(goal, index) in this.jogoObj.goals.timeAway"
               :key="index"
-            >{{goal.text}} {{goal.minute}}</p>
+            >{{goal.text}} {{goal.minute}} {{goal.half}}º</p>
           </div>
         </div>
       </div>
@@ -95,6 +95,7 @@ export default {
   components: {},
   data() {
     return {
+      started: false,
       match: {
         homeTeam: {
           placar: 0,
@@ -105,7 +106,7 @@ export default {
             principal: "",
             secundaria: ""
           },
-          teamId : ''
+          teamId: ""
         },
         awayTeam: {
           placar: 0,
@@ -116,7 +117,7 @@ export default {
             principal: "",
             secundaria: ""
           },
-          teamId : ''
+          teamId: ""
         }
       },
       jogoObj: {}
@@ -132,6 +133,7 @@ export default {
     startGame: function() {
       var interval = setInterval(foo, 2000);
       var self = this;
+      this.started = true;
       function foo() {
         if (self.jogoObj.jogo.encerrado) {
           clearInterval(interval);
@@ -421,5 +423,6 @@ p.play {
 p.main-play {
   font-size: 16px;
   padding: 15px 10px;
+  font-weight: bold;
 }
 </style>
