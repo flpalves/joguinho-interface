@@ -6,11 +6,13 @@ import HomeSelectTatics from '../views/HomeSelectTatics.vue'
 import AwaySelectTatics from '../views/AwaySelectTatics.vue'
 import Match from '../views/Match.vue'
 import GameDay from '../views/GameDay.vue'
+import NewChampionship from '../views/NewChampionship.vue'
+import Fixtures from '../views/Fixtures.vue'
 import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+  const routes = [ 
   {
     path: '/',
     name: 'Home',
@@ -22,7 +24,7 @@ Vue.use(VueRouter)
     component: SelectTeams
   },
   {
-    path: '/home-team-tatics',
+    path: '/home-team-tatics',  
     name: 'HomeTeamTatics',
     component: HomeSelectTatics
   },
@@ -46,11 +48,22 @@ Vue.use(VueRouter)
     name: 'About',
     component: About
   },
+  {
+    path: '/new-championship',
+    name: 'NewChampionship',
+    component: NewChampionship
+  },
+  {
+    path: '/fixtures',
+    name: 'Fixtures',
+    component: Fixtures
+  },
   
 ]
 
 const router = new VueRouter({
   mode: 'history',
+  // mode: 'abstract',
   base: process.env.BASE_URL,
   routes
 })

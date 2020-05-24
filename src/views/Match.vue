@@ -59,17 +59,21 @@
           </ul>
         </div>
         <div class="col-md-6">
-          <div v-for="(play,index) in this.jogoObj.plays" :key="index">
-            <p
-              class="main-play"
-              v-if="index == 0"
-              :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`"
-            >{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
-            <p
-              class="play"
-              v-if="index != 0"
-              :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`"
-            >{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
+          <div class="game-play">
+            <div class="game-play-content">
+              <div v-for="(play,index) in this.jogoObj.plays" :key="index">
+                <p
+                  class="main-play"
+                  v-if="index == 0"
+                  :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`"
+                >{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
+                <p
+                  class="play"
+                  v-if="index != 0"
+                  :style="`background:${play.bg1}; color:${play.bg2}; border: 1px solid ${play.bg2}`"
+                >{{play.minute}}- {{play.text}} ({{play.fieldPosition}})</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-3">
@@ -414,6 +418,14 @@ ul {
     small {
       font-size: 11px;
     }
+  }
+}
+.game-play {
+  
+  height: 100%;
+  .game-play-content{
+    overflow-y: scroll;
+    max-height: 500px;
   }
 }
 p.play {

@@ -8,6 +8,44 @@ export default new Vuex.Store({
     match : {
       homeTeam : {},
       awayTeam : {}
+    },
+    championship:{
+      fixtures:[
+        {
+          games:[
+            {
+              homeTeam :{}, //club object
+              awayTeam :{}, //club object
+            }
+          ],
+          standingAfterRound:{} //standing object
+        }
+      ],
+      standings:{
+        teams:[
+          {
+            position : '',
+            matchs : '',
+            won : '',
+            lost : '',
+            drawn : '',
+            percentage : '',
+            goalsFor : '',
+            goalsAgainst : '',
+            points : '',
+            form: [
+              {
+                adversario : {},
+                result : '',
+                scoreboard:{}
+              } 
+            ],
+            team : {}  // club object
+            
+          }
+        ],
+        round:''
+      }
     }
   },
   mutations: {
@@ -33,6 +71,12 @@ export default new Vuex.Store({
       state.match.awayTeam = payload;
       localStorage.setItem('match',JSON.stringify(state.match));
     },
+    SAVEFIXTURE(){},
+    LOADFIXTUREBYROUND(){},
+    LOADFIXURE(){},
+    SAVESTANDINGS(){},
+    LOADSTANDINGS(){},
+    LOADSTANDINGSBYROUND(){}
   },
   actions: {
   },
