@@ -2,22 +2,22 @@
   <div>
     <h3>Rodadas</h3>
     <swiper class="swiper" :options="swiperOption" ref="round">
-      <swiper-slide v-for="(round, index) in rounds" :key="index">
+      <swiper-slide v-for="(round, index) in this.fixtures" :key="index">
         <h4>Rodada {{round.roundNumber}}</h4>
-        <div class="partida" v-for="(match, index) in round.games" :key="index">
-          <div v-if="round.finished">
+        <div class="partida" v-for="(game, index) in round.games" :key="index">
+          <div v-if="round.finished"> 
             <p>
-                {{match.homeTeam.name}}
-                <strong>{{match.homeTeam.score}}</strong> x
-                <strong>{{match.awayTeam.score}}</strong>
-                {{match.awayTeam.name}}
+                {{game.homeTeam.name}}
+                <strong>{{game.homeScore}}</strong> x
+                <strong>{{game.awayScore}}</strong>
+                {{game.awayTeam.name}}
             </p>
             <p>ver jogo</p>
             <hr>
           </div>
           
           <div v-else>
-              <p>{{match.homeTeam.name}} x {{match.awayTeam.name}}</p>
+              <p>{{game.homeTeam.name}} x {{game.awayTeam.name}}</p>
               <hr>
           </div>
         </div>
@@ -33,10 +33,11 @@ export default {
   name: "ResultsFixtures",
   components: {},
   methods: {},
+  props: ["fixtures"],
   data() {
     return {
       swiperOption: {
-        loop: true,
+        loop: false,
         keyboard: {
           enabled: false
         },

@@ -9,16 +9,16 @@
       </div>
       <div class="row">
         <div class="col-md-8">
-          <Standings />
+          <Standings :standings="this.championship.standings" />
         </div>
         <div class="col-md-4">
-          <ResultsFixtures />
+          <ResultsFixtures :fixtures="this.championship.fixtures" />
           <!-- <HomeGame /> -->
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <b-button to="gameday">Próximo jogo</b-button>
+          <b-button to="next-round">Próximo jogo</b-button>
         </div>
       </div>
     </div>
@@ -37,12 +37,18 @@ export default {
     ResultsFixtures
   },
   methods: {
-
+    getChampionship : function(){
+      this.championship = this.$store.state.championship;
+    }
   },
   data(){
     return {
-      
+      championship : {}
     }
+  },
+  mounted(){
+    this.$store.commit("LOADCHAMP");
+    this.getChampionship();
   }
 };
 </script>

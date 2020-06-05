@@ -10,43 +10,10 @@ export default new Vuex.Store({
       awayTeam : {}
     },
     championship:{
-      fixtures:[
-        {
-          games:[
-            {
-              homeTeam :{}, //club object
-              awayTeam :{}, //club object
-            }
-          ],
-          standingAfterRound:{} //standing object
-        }
-      ],
-      standings:{
-        teams:[
-          {
-            position : '',
-            matchs : '',
-            won : '',
-            lost : '',
-            drawn : '',
-            percentage : '',
-            goalsFor : '',
-            goalsAgainst : '',
-            points : '',
-            form: [
-              {
-                adversario : {},
-                result : '',
-                scoreboard:{}
-              } 
-            ],
-            team : {}  // club object
-            
-          }
-        ],
-        round:''
-      }
-    }
+      
+    },
+    myTeam:{},
+    champGames:[]
   },
   mutations: {
     INSERTTEAMS(state, payload){
@@ -71,12 +38,39 @@ export default new Vuex.Store({
       state.match.awayTeam = payload;
       localStorage.setItem('match',JSON.stringify(state.match));
     },
-    SAVEFIXTURE(){},
-    LOADFIXTUREBYROUND(){},
-    LOADFIXURE(){},
-    SAVESTANDINGS(){},
-    LOADSTANDINGS(){},
-    LOADSTANDINGSBYROUND(){}
+    SAVECHAMP(state, payload){
+      state.championship = payload;
+      localStorage.setItem('championship',JSON.stringify(state.championship));
+    },
+    LOADCHAMP(state){
+      let storageChamp = localStorage.getItem('championship');
+      if(storageChamp){
+        storageChamp = JSON.parse(storageChamp);
+        state.championship = storageChamp;
+      }
+    },
+    SAVEMYTEAM(state, payload){
+      state.myTeam = payload;
+      localStorage.setItem('myTeam',JSON.stringify(state.myTeam));
+    },
+    LOADMYTEAM(state){
+      let storageMyTeam = localStorage.getItem('myTeam');
+      if(storageMyTeam){
+        storageMyTeam = JSON.parse(storageMyTeam);
+        state.myTeam = storageMyTeam;
+      }
+    },
+    SAVECHAMPGAMES(state, payload){
+      state.champGames = payload;
+      localStorage.setItem('champGames',JSON.stringify(state.champGames));
+    },
+    LOADCHAMPGAMES(state){
+      let storageChampGames = localStorage.getItem('champGames');
+      if(storageChampGames){
+        storageChampGames = JSON.parse(storageChampGames);
+        state.champGames = storageChampGames; 
+      }
+    },
   },
   actions: {
   },

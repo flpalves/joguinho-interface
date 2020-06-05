@@ -4,10 +4,13 @@ import Home from '../views/Home.vue'
 import SelectTeams from '../views/SelectTeams.vue'
 import HomeSelectTatics from '../views/HomeSelectTatics.vue'
 import AwaySelectTatics from '../views/AwaySelectTatics.vue'
-import Match from '../views/Match.vue'
+import Friendly from '../views/Friendly.vue'
+import ChampionshipGame from '../views/ChampionshipGame.vue'
 import GameDay from '../views/GameDay.vue'
+import RoundDay from '../views/RoundDay.vue'
 import NewChampionship from '../views/NewChampionship.vue'
 import Fixtures from '../views/Fixtures.vue'
+import NextRound from '../views/NextRound.vue'
 import About from '../views/About.vue'
 
 Vue.use(VueRouter)
@@ -34,9 +37,14 @@ Vue.use(VueRouter)
     component: AwaySelectTatics
   },
   {
+    path: '/friendly',
+    name: 'Friendly',
+    component: Friendly 
+  },
+  {
     path: '/match',
-    name: 'Match',
-    component: Match
+    name: 'ChampionshipGame',
+    component: ChampionshipGame
   },
   {
     path: '/gameday',
@@ -57,6 +65,16 @@ Vue.use(VueRouter)
     path: '/fixtures',
     name: 'Fixtures',
     component: Fixtures
+  },
+  {
+    path: '/next-round',
+    name: 'NextRound',
+    component: NextRound
+  },
+  {
+    path: '/round-day',
+    name: 'RoundDay',
+    component: RoundDay
   },
   
 ]

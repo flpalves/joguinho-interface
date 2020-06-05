@@ -1,7 +1,34 @@
 <template>
   <div>
       <h3>Classificação Geral</h3> 
-    <b-table striped hover :items="items"></b-table>
+    <!-- <b-table striped hover :items="this.standings"></b-table> -->
+
+    <table class="table">
+      <tr>
+        <th>Posição</th>
+        <th>Clube</th>
+        <th>Pontos</th>
+        <th>Vitórias</th>
+        <th>Empates</th>
+        <th>Derrotas</th>
+        <th>Gols Pró</th>
+        <th>Gols Sofridos</th>
+        <th>Saldo de Gols</th>
+        <th>Forma</th>
+      </tr>
+      <tr v-for="(club, index) in this.standings" :key="index">
+        <td>{{club.position}}</td>
+        <td>{{club.team.name}}</td>
+        <td>{{club.points}}</td>
+        <td>{{club.won}}</td>
+        <td>{{club.drawn}}</td>
+        <td>{{club.lost}}</td>
+        <td>{{club.goalsFor}}</td>
+        <td>{{club.goalsAgainst}}</td>
+        <td>{{club.goalsFor - club.goalsAgainst}}</td>
+        <td>{{club.form}}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -10,46 +37,10 @@ export default {
   name: "Standings",
   components: {},
   methods: {},
+  props : ["standings"],
   data() {
     return {
-      items: [
-        {
-          name: "Seropédica",
-          position: "1º",
-          matchs: "3",
-          won: "3",
-          lost: "0",
-          drawn: "0",
-          percentage: "100%",
-          goalsFor: "13",
-          goalsAgainst: "2",
-          points: "9"
-        },
-        {
-          name: "Grêmio Km49",
-          position: "2º",
-          matchs: "3",
-          won: "3",
-          lost: "0",
-          drawn: "0",
-          percentage: "100%",
-          goalsFor: "10",
-          goalsAgainst: "3",
-          points: "9"
-        },
-        {
-          name: "Esperança FC",
-          position: "3º",
-          matchs: "3",
-          won: "3",
-          lost: "0",
-          drawn: "0",
-          percentage: "100%",
-          goalsFor: "13",
-          goalsAgainst: "2",
-          points: "9"
-        },
-      ]
+       
     };
   },
   mounted() {},

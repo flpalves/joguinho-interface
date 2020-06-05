@@ -5,8 +5,11 @@ const GameEngine = {
             timeHome : [],
             timeAway : []
         },
-        setJogo : function(home, away) {
+        setJogo : function(homex, awayx) {
             // //debugger;
+            
+            let home = Object.assign({}, homex);
+            let away = Object.assign({}, awayx);
             this.jogo = {
                 timeHome: home,
                 timeAway:away,
@@ -28,9 +31,14 @@ const GameEngine = {
                     'timeHome' : [],
                     'timeAway' : [],
                 }
-            }
+            },
+            this.plays = [];
+            this.goals = {
+                timeHome : [],
+                timeAway : []
+            },
             this.initStats();
-            return this;
+            return Object.assign({}, this);
         },
         rolaDado : function() {
             var dado = Math.floor(Math.random() * 6) + 1;

@@ -1470,5 +1470,2213 @@ const Vasco = function(){
     }
 }
 
+const seropedicaAc = function(){
+  return {
+    selectedFormation: "4-4-2Losango",
+    name: "Seropedica",
+    teamId: "seropedicaAc",
+    colors: {
+      primary : 'red',
+      secondary : 'white'
+    },
+    starting11: [
+      {
+        name: "Gk do Seropédica",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "15",
+          "posicionamento": "13",
+          "defende": "13",
+          "espalma": "13",
+          "espalmaFora": "13",
+          "jogoAereo": "12",
+          "reposicao": "11"
+        },
+        role: ""
+      },
+      {
+        name: "Gustavo Henrique",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "2",
+          "carrinho": "13",
+          "corrida": "3",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "13",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rodrigo Caio",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "12",
+          "lancamento": "8",
+          "chute": "3",
+          "drible": "2",
+          "carrinho": "14",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "14",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rafinha",
+        posicoes: ["rb", "rm", "rf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "15",
+          "chute": "9",
+          "drible": "12",
+          "carrinho": "8",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "5",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Filipe Luis",
+        posicoes: ["lb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "6",
+          "drible": "8",
+          "carrinho": "12",
+          "corrida": "11",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "William Arão",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "10",
+          "lancamento": "7",
+          "chute": "6",
+          "drible": "6",
+          "carrinho": "11",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gerson",
+        posicoes: ["cm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "15",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "11",
+          "drible": "12",
+          "carrinho": "10",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "9",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Arrascaeta",
+        posicoes: ["om", "lm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "9",
+          "toque": "14",
+          "lancamento": "8",
+          "chute": "13",
+          "drible": "12",
+          "carrinho": "5",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Everton Ribeiro",
+        posicoes: ["rm", "lm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "10",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "12",
+          "drible": "13",
+          "carrinho": "7",
+          "corrida": "13",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Bruno Henrique",
+        posicoes: ["lf", "cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gabigol",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "11",
+          "lancamento": "3",
+          "chute": "15",
+          "drible": "12",
+          "carrinho": "7",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ],
+    beach: [
+      {
+        name: "César",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "9",
+          "posicionamento": "9",
+          "defende": "9",
+          "espalma": "11",
+          "espalmaFora": "12",
+          "jogoAereo": "11",
+          "reposicao": "8"
+        },
+        role: ""
+      },
+      {
+        name: "Leo Pereira",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "7",
+          "lancamento": "4",
+          "chute": "4",
+          "drible": "6",
+          "carrinho": "10",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Diego Ribas",
+        posicoes: ["om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Thiago Maia",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "3",
+          "carrinho": "12",
+          "corrida": "7",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Lincoln",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "4",
+          "chute": "9",
+          "drible": "8",
+          "carrinho": "5",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ]
+  }
+}
 
-export default {Flamengo, Fluminense, Vasco, Botafogo};   
+const gremioKm49 = function(){
+  return {
+    selectedFormation: "4-4-2Losango",
+    name: "Grêmio Km49",
+    teamId: "gremioKm49",
+    colors: {
+      primary : 'white',
+      secondary : 'black'
+    },
+    starting11: [
+      {
+        name: "Gk Gremio",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "15",
+          "posicionamento": "13",
+          "defende": "13",
+          "espalma": "13",
+          "espalmaFora": "13",
+          "jogoAereo": "12",
+          "reposicao": "11"
+        },
+        role: ""
+      },
+      {
+        name: "Gustavo Henrique",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "2",
+          "carrinho": "13",
+          "corrida": "3",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "13",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rodrigo Caio",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "12",
+          "lancamento": "8",
+          "chute": "3",
+          "drible": "2",
+          "carrinho": "14",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "14",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rafinha",
+        posicoes: ["rb", "rm", "rf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "15",
+          "chute": "9",
+          "drible": "12",
+          "carrinho": "8",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "5",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Filipe Luis",
+        posicoes: ["lb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "6",
+          "drible": "8",
+          "carrinho": "12",
+          "corrida": "11",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "William Arão",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "10",
+          "lancamento": "7",
+          "chute": "6",
+          "drible": "6",
+          "carrinho": "11",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gerson",
+        posicoes: ["cm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "15",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "11",
+          "drible": "12",
+          "carrinho": "10",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "9",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Arrascaeta",
+        posicoes: ["om", "lm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "9",
+          "toque": "14",
+          "lancamento": "8",
+          "chute": "13",
+          "drible": "12",
+          "carrinho": "5",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Everton Ribeiro",
+        posicoes: ["rm", "lm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "10",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "12",
+          "drible": "13",
+          "carrinho": "7",
+          "corrida": "13",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Bruno Henrique",
+        posicoes: ["lf", "cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gabigol",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "11",
+          "lancamento": "3",
+          "chute": "15",
+          "drible": "12",
+          "carrinho": "7",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ],
+    beach: [
+      {
+        name: "César",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "9",
+          "posicionamento": "9",
+          "defende": "9",
+          "espalma": "11",
+          "espalmaFora": "12",
+          "jogoAereo": "11",
+          "reposicao": "8"
+        },
+        role: ""
+      },
+      {
+        name: "Leo Pereira",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "7",
+          "lancamento": "4",
+          "chute": "4",
+          "drible": "6",
+          "carrinho": "10",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Diego Ribas",
+        posicoes: ["om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Thiago Maia",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "3",
+          "carrinho": "12",
+          "corrida": "7",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Lincoln",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "4",
+          "chute": "9",
+          "drible": "8",
+          "carrinho": "5",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ]
+  }
+}
+
+const tupySc = function(){
+  return {
+    selectedFormation: "4-4-2Losango",
+    name: "Tupy SC",
+    teamId: "tupySc",
+    colors: {
+      primary : 'green',
+      secondary : 'black'
+    },
+    starting11: [
+      {
+        name: "GK Tupy",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "15",
+          "posicionamento": "13",
+          "defende": "13",
+          "espalma": "13",
+          "espalmaFora": "13",
+          "jogoAereo": "12",
+          "reposicao": "11"
+        },
+        role: ""
+      },
+      {
+        name: "Gustavo Henrique",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "2",
+          "carrinho": "13",
+          "corrida": "3",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "13",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rodrigo Caio",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "12",
+          "lancamento": "8",
+          "chute": "3",
+          "drible": "2",
+          "carrinho": "14",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "14",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rafinha",
+        posicoes: ["rb", "rm", "rf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "15",
+          "chute": "9",
+          "drible": "12",
+          "carrinho": "8",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "5",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Filipe Luis",
+        posicoes: ["lb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "6",
+          "drible": "8",
+          "carrinho": "12",
+          "corrida": "11",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "William Arão",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "10",
+          "lancamento": "7",
+          "chute": "6",
+          "drible": "6",
+          "carrinho": "11",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gerson",
+        posicoes: ["cm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "15",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "11",
+          "drible": "12",
+          "carrinho": "10",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "9",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Arrascaeta",
+        posicoes: ["om", "lm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "9",
+          "toque": "14",
+          "lancamento": "8",
+          "chute": "13",
+          "drible": "12",
+          "carrinho": "5",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Everton Ribeiro",
+        posicoes: ["rm", "lm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "10",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "12",
+          "drible": "13",
+          "carrinho": "7",
+          "corrida": "13",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Bruno Henrique",
+        posicoes: ["lf", "cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gabigol",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "11",
+          "lancamento": "3",
+          "chute": "15",
+          "drible": "12",
+          "carrinho": "7",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ],
+    beach: [
+      {
+        name: "César",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "9",
+          "posicionamento": "9",
+          "defende": "9",
+          "espalma": "11",
+          "espalmaFora": "12",
+          "jogoAereo": "11",
+          "reposicao": "8"
+        },
+        role: ""
+      },
+      {
+        name: "Leo Pereira",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "7",
+          "lancamento": "4",
+          "chute": "4",
+          "drible": "6",
+          "carrinho": "10",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Diego Ribas",
+        posicoes: ["om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Thiago Maia",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "3",
+          "carrinho": "12",
+          "corrida": "7",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Lincoln",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "4",
+          "chute": "9",
+          "drible": "8",
+          "carrinho": "5",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ]
+  }
+}
+
+const biecPbi = function(){
+  return {
+    selectedFormation: "4-4-2Losango",
+    name: "Brasil Industrial",
+    teamId: "biecPbi",
+    colors: {
+      primary : 'white',
+      secondary : 'red'
+    },
+    starting11: [
+      {
+        name: "GK BIEC",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "15",
+          "posicionamento": "13",
+          "defende": "13",
+          "espalma": "13",
+          "espalmaFora": "13",
+          "jogoAereo": "12",
+          "reposicao": "11"
+        },
+        role: ""
+      },
+      {
+        name: "Gustavo Henrique",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "2",
+          "carrinho": "13",
+          "corrida": "3",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "13",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rodrigo Caio",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "12",
+          "lancamento": "8",
+          "chute": "3",
+          "drible": "2",
+          "carrinho": "14",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "14",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rafinha",
+        posicoes: ["rb", "rm", "rf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "15",
+          "chute": "9",
+          "drible": "12",
+          "carrinho": "8",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "5",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Filipe Luis",
+        posicoes: ["lb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "6",
+          "drible": "8",
+          "carrinho": "12",
+          "corrida": "11",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "William Arão",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "10",
+          "lancamento": "7",
+          "chute": "6",
+          "drible": "6",
+          "carrinho": "11",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gerson",
+        posicoes: ["cm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "15",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "11",
+          "drible": "12",
+          "carrinho": "10",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "9",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Arrascaeta",
+        posicoes: ["om", "lm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "9",
+          "toque": "14",
+          "lancamento": "8",
+          "chute": "13",
+          "drible": "12",
+          "carrinho": "5",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Everton Ribeiro",
+        posicoes: ["rm", "lm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "10",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "12",
+          "drible": "13",
+          "carrinho": "7",
+          "corrida": "13",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Bruno Henrique",
+        posicoes: ["lf", "cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gabigol",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "11",
+          "lancamento": "3",
+          "chute": "15",
+          "drible": "12",
+          "carrinho": "7",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ],
+    beach: [
+      {
+        name: "César",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "9",
+          "posicionamento": "9",
+          "defende": "9",
+          "espalma": "11",
+          "espalmaFora": "12",
+          "jogoAereo": "11",
+          "reposicao": "8"
+        },
+        role: ""
+      },
+      {
+        name: "Leo Pereira",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "7",
+          "lancamento": "4",
+          "chute": "4",
+          "drible": "6",
+          "carrinho": "10",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Diego Ribas",
+        posicoes: ["om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Thiago Maia",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "3",
+          "carrinho": "12",
+          "corrida": "7",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Lincoln",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "4",
+          "chute": "9",
+          "drible": "8",
+          "carrinho": "5",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ]
+  }
+}
+
+const ecologiaAc = function(){
+  return {
+    selectedFormation: "4-4-2Losango",
+    name: "Ecologia AC",
+    teamId: "ecologiaAc",
+    colors: {
+      primary : '#900',
+      secondary : 'white'
+    },
+    starting11: [
+      {
+        name: "Gk Eco",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "15",
+          "posicionamento": "13",
+          "defende": "13",
+          "espalma": "13",
+          "espalmaFora": "13",
+          "jogoAereo": "12",
+          "reposicao": "11"
+        },
+        role: ""
+      },
+      {
+        name: "Gustavo Henrique",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "2",
+          "carrinho": "13",
+          "corrida": "3",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "13",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rodrigo Caio",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "12",
+          "lancamento": "8",
+          "chute": "3",
+          "drible": "2",
+          "carrinho": "14",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "14",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rafinha",
+        posicoes: ["rb", "rm", "rf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "15",
+          "chute": "9",
+          "drible": "12",
+          "carrinho": "8",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "5",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Filipe Luis",
+        posicoes: ["lb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "6",
+          "drible": "8",
+          "carrinho": "12",
+          "corrida": "11",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "William Arão",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "10",
+          "lancamento": "7",
+          "chute": "6",
+          "drible": "6",
+          "carrinho": "11",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gerson",
+        posicoes: ["cm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "15",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "11",
+          "drible": "12",
+          "carrinho": "10",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "9",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Arrascaeta",
+        posicoes: ["om", "lm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "9",
+          "toque": "14",
+          "lancamento": "8",
+          "chute": "13",
+          "drible": "12",
+          "carrinho": "5",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Everton Ribeiro",
+        posicoes: ["rm", "lm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "10",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "12",
+          "drible": "13",
+          "carrinho": "7",
+          "corrida": "13",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Bruno Henrique",
+        posicoes: ["lf", "cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gabigol",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "11",
+          "lancamento": "3",
+          "chute": "15",
+          "drible": "12",
+          "carrinho": "7",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ],
+    beach: [
+      {
+        name: "César",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "9",
+          "posicionamento": "9",
+          "defende": "9",
+          "espalma": "11",
+          "espalmaFora": "12",
+          "jogoAereo": "11",
+          "reposicao": "8"
+        },
+        role: ""
+      },
+      {
+        name: "Leo Pereira",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "7",
+          "lancamento": "4",
+          "chute": "4",
+          "drible": "6",
+          "carrinho": "10",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Diego Ribas",
+        posicoes: ["om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Thiago Maia",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "3",
+          "carrinho": "12",
+          "corrida": "7",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Lincoln",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "4",
+          "chute": "9",
+          "drible": "8",
+          "carrinho": "5",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ]
+  }
+}
+
+const esperancaFc = function(){
+  return {
+    selectedFormation: "4-4-2Losango",
+    name: "Esperanca",
+    teamId: "esperancaFc",
+    colors: {
+      primary : 'white',
+      secondary : 'green'
+    },
+    starting11: [
+      {
+        name: "GK Esperanca",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "15",
+          "posicionamento": "13",
+          "defende": "13",
+          "espalma": "13",
+          "espalmaFora": "13",
+          "jogoAereo": "12",
+          "reposicao": "11"
+        },
+        role: ""
+      },
+      {
+        name: "Gustavo Henrique",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "2",
+          "carrinho": "13",
+          "corrida": "3",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "13",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rodrigo Caio",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "12",
+          "lancamento": "8",
+          "chute": "3",
+          "drible": "2",
+          "carrinho": "14",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "14",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Rafinha",
+        posicoes: ["rb", "rm", "rf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "15",
+          "chute": "9",
+          "drible": "12",
+          "carrinho": "8",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "5",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Filipe Luis",
+        posicoes: ["lb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "6",
+          "drible": "8",
+          "carrinho": "12",
+          "corrida": "11",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "William Arão",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "10",
+          "lancamento": "7",
+          "chute": "6",
+          "drible": "6",
+          "carrinho": "11",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gerson",
+        posicoes: ["cm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "15",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "11",
+          "drible": "12",
+          "carrinho": "10",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "9",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Arrascaeta",
+        posicoes: ["om", "lm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "9",
+          "toque": "14",
+          "lancamento": "8",
+          "chute": "13",
+          "drible": "12",
+          "carrinho": "5",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Everton Ribeiro",
+        posicoes: ["rm", "lm", "om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "10",
+          "toque": "13",
+          "lancamento": "12",
+          "chute": "12",
+          "drible": "13",
+          "carrinho": "7",
+          "corrida": "13",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "8",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Bruno Henrique",
+        posicoes: ["lf", "cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Gabigol",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "11",
+          "lancamento": "3",
+          "chute": "15",
+          "drible": "12",
+          "carrinho": "7",
+          "corrida": "12",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ],
+    beach: [
+      {
+        name: "César",
+        posicoes: ["gk"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "0",
+          "toque": "0",
+          "lancamento": "0",
+          "chute": "0",
+          "drible": "0",
+          "carrinho": "0",
+          "corrida": "0",
+          "penalti": "9",
+          "posicionamento": "9",
+          "defende": "9",
+          "espalma": "11",
+          "espalmaFora": "12",
+          "jogoAereo": "11",
+          "reposicao": "8"
+        },
+        role: ""
+      },
+      {
+        name: "Leo Pereira",
+        posicoes: ["cb"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "7",
+          "lancamento": "4",
+          "chute": "4",
+          "drible": "6",
+          "carrinho": "10",
+          "corrida": "9",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "12",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Diego Ribas",
+        posicoes: ["om"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "11",
+          "toque": "14",
+          "lancamento": "13",
+          "chute": "12",
+          "drible": "12",
+          "carrinho": "9",
+          "corrida": "10",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "10",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Thiago Maia",
+        posicoes: ["dm", "cm"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "12",
+          "toque": "8",
+          "lancamento": "6",
+          "chute": "4",
+          "drible": "3",
+          "carrinho": "12",
+          "corrida": "7",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "6",
+          "reposicao": "0"
+        },
+        role: ""
+      },
+      {
+        name: "Lincoln",
+        posicoes: ["cf"],
+        clube_id: "1",
+        habilidades : {
+          "forca": "13",
+          "toque": "8",
+          "lancamento": "4",
+          "chute": "9",
+          "drible": "8",
+          "carrinho": "5",
+          "corrida": "8",
+          "penalti": "0",
+          "posicionamento": "0",
+          "defende": "0",
+          "espalma": "0",
+          "espalmaFora": "0",
+          "jogoAereo": "11",
+          "reposicao": "0"
+        },
+        role: ""
+      }
+    ]
+  }
+}
+ 
+
+export default {Flamengo, Fluminense, Vasco, Botafogo, seropedicaAc, esperancaFc, gremioKm49, tupySc, biecPbi, ecologiaAc };   
