@@ -127,8 +127,8 @@ export default {
   },
   methods: {
     getMatch: function() {
-        // this.jogoObj = {...this.$GameEngine}
-        this.jogoObj = Object.assign({}, this.$GameEngine);
+        this.jogoObj = {...this.$GameEngine}
+        // this.jogoObj = Object.assign({}, this.$GameEngine);
         this.jogoObj = this.jogoObj.setJogo(
         this.match.homeTeam,
         this.match.awayTeam

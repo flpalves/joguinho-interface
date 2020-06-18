@@ -5,11 +5,11 @@ const GameEngine = {
             timeHome : [],
             timeAway : []
         },
-        setJogo : function(homex, awayx) {
+        setJogo : function(home, away) {
             // //debugger;
             
-            let home = Object.assign({}, homex);
-            let away = Object.assign({}, awayx);
+            // let home = Object.assign({}, homex);
+            // let away = Object.assign({}, awayx);
             this.jogo = {
                 timeHome: home,
                 timeAway:away,
@@ -38,7 +38,8 @@ const GameEngine = {
                 timeAway : []
             },
             this.initStats();
-            return Object.assign({}, this);
+            // return Object.assign({}, this);
+            return this;
         },
         rolaDado : function() {
             var dado = Math.floor(Math.random() * 6) + 1;
@@ -80,8 +81,10 @@ const GameEngine = {
                     
                     // this.resetarTime();
                 } 
+                let text = this.jogo.timeHome.nome + ' ' + this.jogo.timeHome.placar + 'x' + this.jogo.timeAway.placar + ' ' + this.jogo.timeAway.nome;
+                let event = new CustomEvent('halfTime', {'detail': text});
+                window.dispatchEvent(event); 
                 this.resetarTime();
-        
         
                 this.printaAcao('final do ' + this.jogo.tempo.etapa + ' tempo');
                 this.jogo.tempo.etapa++;
@@ -90,26 +93,34 @@ const GameEngine = {
             }
             this.printaAcao('Fim de jogo!');
             this.jogo.encerrado = true;
-            this.printaAcao(this.jogo.timeHome.nome + ' ' + this.jogo.timeHome.placar + 'x' + this.jogo.timeAway.placar + ' ' + this.jogo.timeAway.nome);
+            let text = this.jogo.timeHome.nome + ' ' + this.jogo.timeHome.placar + 'x' + this.jogo.timeAway.placar + ' ' + this.jogo.timeAway.nome;
+            this.printaAcao(text);
+            let event = new CustomEvent('endGame', {'detail': text});
+            window.dispatchEvent(event); 
         
         },
         marcaGol : function(jogadorNome){
-            if(this.jogo.posseBola.timeAtk == 'timeHome'){
-                this.goals.timeHome.push({
-                    team : this.jogo[this.jogo.posseBola.timeAtk].nome,
-                    minute : this.jogo.tempo.minuto,
-                    text : jogadorNome,
-                    fieldPosition : this.jogo.posseBola.posicao,
-                    half: this.jogo.tempo.etapa
-                });
-            } else {
-                this.goals.timeAway.push({
-                    team : this.jogo[this.jogo.posseBola.timeAtk].nome,
-                    minute : this.jogo.tempo.minuto,
-                    text : jogadorNome,
-                    fieldPosition : this.jogo.posseBola.posicao
-                });
+            let scoreInfo = {
+                team : this.jogo[this.jogo.posseBola.timeAtk].nome,
+                minute : this.jogo.tempo.minuto,
+                text : jogadorNome,
+                fieldPosition : this.jogo.posseBola.posicao,
+                half: this.jogo.tempo.etapa,
+                scoreBoard : {
+                    homeTeam : this.jogo.timeHome.nome,
+                    awayTeam : this.jogo.timeAway.nome,
+                    placarHome : this.jogo.timeHome.placar,
+                    placarAway : this.jogo.timeAway.placar,
+                },
             }
+            if(this.jogo.posseBola.timeAtk == 'timeHome'){
+                this.goals.timeHome.push(scoreInfo);
+            } else {
+                this.goals.timeAway.push(scoreInfo);
+            }
+
+            var event = new CustomEvent('goal', {'detail': scoreInfo});
+            window.dispatchEvent(event); 
             
         },
         printaAcao : function(jogada) {
@@ -121,6 +132,7 @@ const GameEngine = {
                 bg1 : this.jogo[this.jogo.posseBola.timeAtk].cores.principal,
                 bg2 : this.jogo[this.jogo.posseBola.timeAtk].cores.secundaria
             });
+            
             // var p = document.createElement('p');
             // var texto = document.createTextNode(this.jogo.tempo.minuto + '" ' + jogada + '('+ this.jogo.posseBola.posicao +')');
             // p.appendChild(texto);
@@ -823,14 +835,16 @@ const GameEngine = {
         gol: function (jogadorNome) {
             // //debugger;
             this.printaAcao('OLHUGOOL');
-            this.marcaGol(jogadorNome);
+            
 
             if (this.jogo.posseBola.timeAtk == 'timeHome') {
                 this.jogo.timeHome.placar++;
             } else {
                 this.jogo.timeAway.placar++;
             }
+            this.marcaGol(jogadorNome);
             this.posGol();
+            
         },
 
         defende: function (jogadorBola) {

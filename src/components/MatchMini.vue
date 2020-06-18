@@ -1,10 +1,6 @@
 <template>
   <div>
-    
-    <div v-for="(play,index) in this.match.jogoObj.plays" :key="index"> 
-        <h4>{{play}}</h4>
-    </div>
-    <b-button @click="startGame">começa porra</b-button>
+    <!-- <b-button @click="startGame">começa porra</b-button> -->
   </div>
 </template>
 
@@ -21,25 +17,29 @@ export default {
   data() {
     return {
       match: {
-          homeTeam : {
-            teamId : ''
-          },
-          awayTeam : {
-            teamId : ''
-          },
-          jogoObj : {
-              plays: []
-          }
-      }
+        homeTeam: {
+          teamId: ""
+        },
+        awayTeam: {
+          teamId: ""
+        },
+        jogoObj: {}
+      },
+      scores: {}
     };
   },
   mounted() {
-    this.getTeams(); 
+    this.getTeams();
+    this.scores = this.goals;
   },
   methods: {
+    goalEvent: function() {
+      console.log("goal porra!");
+      return true;
+    },
     mountMatch: function() {
-       this.match = GameObj.GameObj.mountMatch(this.match);
-       this.getMatch();
+      this.match = GameObj.GameObj.mountMatch(this.match);
+      this.getMatch();
     },
     getTeams: function() {
       this.getFullHomeTeam();
@@ -47,9 +47,7 @@ export default {
       this.mountMatch();
     },
     getMatch: function() {
-    //   this.match.jogoObj = { ...this.$GameEngine };
-      this.match.jogoObj = Object.assign({}, this.$GameEngine);
-    //   this.match.jogoObj = $.extend(true, [], this.$GameEngine);
+      this.match.jogoObj = { ...this.$GameEngine };
       this.match.jogoObj = this.match.jogoObj.setJogo(
         this.match.homeTeam,
         this.match.awayTeam
@@ -59,33 +57,33 @@ export default {
       var interval = setInterval(foo, 2000);
       var self = this;
       this.started = true;
+
       function foo() {
         if (self.match.jogoObj.jogo.encerrado) {
           clearInterval(interval);
         }
         self.match.jogoObj.controlaJogo();
-        // console.log(self.match.jogoObj.plays);
-        
+        self.$forceUpdate();
       }
     },
     getFullHomeTeam: function() {
       let teamName = this.game.homeTeam.teamId;
       let fullTeam = Clubs[teamName]();
       this.match.homeTeam = fullTeam;
-      
+
       this.insertPositionsInPlayers(this.match.homeTeam);
     },
     getFullAwayTeam: function() {
       let teamName = this.game.awayTeam.teamId;
       let fullTeam = Clubs[teamName]();
       this.match.awayTeam = fullTeam;
-      
+
       this.insertPositionsInPlayers(this.match.awayTeam);
     },
     insertPositionsInPlayers: function(fullTeam) {
       let formationName = fullTeam.selectedFormation;
       let formation = Formations.getFormationByName(formationName);
-      
+
       console.log(formation);
 
       fullTeam.starting11.map((player, index) => {
@@ -93,11 +91,15 @@ export default {
       });
     }
   },
-  computed: {},
+  computed: {
+    goals: function() {
+      return this.match.jogoObj.goals;
+    }
+  },
   watch: {
-    // match.jogoObj.plays: function(){
-
-    // }
+    scores: function() {
+      this.goalEvent();
+    }
   }
 };
 </script>

@@ -1,8 +1,7 @@
 <template>
   <div>
-    <!-- <b-button class="mb-2" variant="primary" @click="startMatches">Show toast</b-button> -->
-    <MatchMini v-for="(match, index) in this.matches" :game="match" :key="index" />
-    <b-button class="mb-2" variant="primary" @click="makeToast('secondary')">Show toast</b-button>
+    <MatchMini v-for="(match, index) in this.matches" :game="match" :key="`${componentKey}-${index}`" ref="matches" />
+    <b-button @click="startMatches">começa?</b-button>
   </div>
 </template> 
 
@@ -18,21 +17,50 @@ export default {
   methods: {},
   data() {
     return {
-      matches: []
+      matches: [],
+      componentKey : 0,
     };
   },
   mounted() {
     this.$store.commit("LOADCHAMPGAMES");
     this.matches = this.$store.state.champGames;
-    // this.createMatchs();
+
+    window.addEventListener('goal', (event) => {
+        let eventData = {
+            text : `${event.detail.minute}" do ${event.detail.half}º tempo, ${event.detail.text} marca, ${event.detail.scoreBoard.homeTeam} ${event.detail.scoreBoard.placarHome}x${event.detail.scoreBoard.placarAway  } ${event.detail.scoreBoard.awayTeam}`,
+            title : `Tem gol, ${event.detail.team}!`
+        };
+        this.makeToast('secondary', eventData);
+    }, false);
+
+    window.addEventListener('endGame', (event) => { 
+        let eventData = {
+            text : `${event.detail}`,
+            title : `Fim de jogo`
+        };
+        this.makeToast('secondary', eventData);
+    }, false);
+
+    window.addEventListener('halfTime', (event) => { 
+        let eventData = {
+            text : `${event.detail}`,
+            title : `Intervalo`
+        };
+
+        this.makeToast('secondary', eventData);
+    }, false);
+    
   },
   methods: {
-    makeToast(variant = null) {
-      this.$bvToast.toast("Gol de fulano, Flamengo 1x0 Grêmio", {
-        title: `Tem gol!`,
+    makeToast(variant = null, eventData = {title:'???',text: 'segue o jogo'}) {
+      this.$bvToast.toast( eventData.text, {
+        title: eventData.title,
         variant: variant,
         solid: false
       });
+    },
+    startMatches : function(){
+        this.$refs.matches.forEach( (match) => match.startGame() );
     }
   },
   computed: {},
