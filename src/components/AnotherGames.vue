@@ -1,7 +1,6 @@
 <template>
   <div>
     <MatchMini v-for="(match, index) in this.matches" :game="match" :key="`${componentKey}-${index}`" ref="matches" />
-    <b-button @click="startMatches">começa?</b-button>
   </div>
 </template> 
 
@@ -60,6 +59,8 @@ export default {
       });
     },
     startMatches : function(){
+      console.log('start matches');
+      
         this.$refs.matches.forEach( (match) => match.startGame() );
     }
   },

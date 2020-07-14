@@ -71,6 +71,17 @@ export default new Vuex.Store({
         state.champGames = storageChampGames; 
       }
     },
+    SAVEMATCH(state, payload){
+      state.match = payload;
+      localStorage.setItem('match',JSON.stringify(state.match));
+    },
+    LOADMATCH(state){
+      let storageMatch = localStorage.getItem('match');
+      if(storageMatch){
+        storageMatch = JSON.parse(storageMatch);
+        state.match = storageMatch; 
+      }
+    },
   },
   actions: {
   },

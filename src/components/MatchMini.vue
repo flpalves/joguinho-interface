@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     goalEvent: function() {
-      console.log("goal porra!");
+      // console.log("goal porra!");
       return true;
     },
     mountMatch: function() {

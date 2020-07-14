@@ -6,6 +6,7 @@
           {{jogoObj.jogo.tempo.minuto || 0}}'
           <small>{{jogoObj.jogo.tempo.etapa}}º tempo</small>
         </h4>
+        
       </div>
     </div>
     <div class="row">
@@ -16,6 +17,8 @@
       <div class="col-md-6">
         <h1>{{jogoObj.jogo.timeHome.placar}} x {{jogoObj.jogo.timeAway.placar}}</h1>
         <b-button v-if="!this.started" @click="startGame" variant="outline-primary">Começar</b-button>
+        <b-button @click="finishGame" >sair do jogo</b-button>
+        <!-- <b-button v-if="jogoObj.jogo.encerrado" @click="finishGame" >sair do jogo</b-button> -->
       </div>
       <div class="col-md-3">
         <img alt="Team Kit" :src="getImgUrl(this.match.awayTeam.teamId)" />
@@ -135,6 +138,7 @@ export default {
       );
     },
     startGame: function() {
+      this.$emit('initMatch');
       var interval = setInterval(foo, 2000);
       var self = this;
       this.started = true;
@@ -148,6 +152,10 @@ export default {
     
     getImgUrl: function(img) {
       return require("../assets/logos/" + img + ".png");
+    },
+    
+    finishGame : function(){
+      this.$emit('endGame');
     }
   },
   mounted() {
@@ -155,6 +163,9 @@ export default {
     
     this.match = GameObj.GameObj.mountMatch(this.$store.state.match);
     this.getMatch();
+
+
+
   }
 };
 </script>
