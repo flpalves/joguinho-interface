@@ -42,7 +42,7 @@ const GameEngine = {
             return this;
         },
         rolaDado : function() {
-            var dado = Math.floor(Math.random() * 6) + 1;
+            var dado = Math.floor(Math.random() * 8) + 1;
             return dado;
         },
         proximaJogada : function() {
@@ -64,6 +64,8 @@ const GameEngine = {
                 // console.log(jogadorBola.acoes[this.rolaDado()]);
          
             }
+
+            return true;
         
         },
         controlaJogo : function() {
@@ -80,7 +82,8 @@ const GameEngine = {
                     return this.proximaJogada();
                     
                     // this.resetarTime();
-                } 
+                }
+
                 let text = this.jogo.timeHome.nome + ' ' + this.jogo.timeHome.placar + 'x' + this.jogo.timeAway.placar + ' ' + this.jogo.timeAway.nome;
                 let event = new CustomEvent('halfTime', {'detail': text});
                 window.dispatchEvent(event); 
@@ -89,7 +92,7 @@ const GameEngine = {
                 this.printaAcao('final do ' + this.jogo.tempo.etapa + ' tempo');
                 this.jogo.tempo.etapa++;
                 this.jogo.tempo.minuto = 0;
-                return true;
+                
             }
             this.printaAcao('Fim de jogo!');
             this.jogo.encerrado = true;
@@ -139,123 +142,36 @@ const GameEngine = {
             // document.getElementById("result").appendChild(p).setAttribute("style", "background:" + this.jogo[this.jogo.posseBola.timeAtk].cores.principal + "; color:" + this.jogo[this.jogo.posseBola.timeAtk].cores.secundaria + "; border: 1px solid" + this.jogo[this.jogo.posseBola.timeAtk].cores.secundaria + " blue;");
         },
         initStats : function(){
-            this.jogo.timeHome.jogadores.forEach((jogador) => {
-                this.jogo.stats.timeHome.push({
-                    'corrida' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'toque' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'lancamento' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'drible' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'drible' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'chute' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'cabeceio' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'disputa' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'carrinho' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },      
-                })
-            });
-        
-            this.jogo.timeAway.jogadores.forEach((jogador) => {
-                this.jogo.stats.timeAway.push({
-                    'corrida' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'toque' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'lancamento' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'drible' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'drible' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'chute' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'cabeceio' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'disputa' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },
-                    'carrinho' : {
-                        'tentativas' : 0,
-                        'concluidas' : 0,
-                        'perfeitas'  : 0,
-                        'falha'      : 0
-                    },  
-                })
-            });
+            
+            this.jogo.stats.timeHome = {
+                chutes : 0,
+                chutesAGol : 0,
+                toquesTentados : 0,
+                toques : 0,
+                lancamentos : 0,
+                dribles : 0,
+                roubos : 0,
+                erros : 0,
+                rifadas : 0,
+                toquesPerfeitos : 0,
+                lancamentosPerfeitos : 0,
+                corridas: 0
+            };
+            this.jogo.stats.timeAway = {
+                chutes : 0,
+                chutesAGol : 0,
+                toquesTentados : 0,
+                toques : 0,
+                lancamentos : 0,
+                dribles : 0,
+                roubos : 0,
+                erros : 0,
+                rifadas : 0,
+                toquesPerfeitos : 0,
+                lancamentosPerfeitos : 0,
+                corridas : 0
+            }
+                    
         },
         mensuraJogada: function(time, indexJogador, acao, status){
             // this.jogo.stats[time][indexJogador][acao].tentativas++;
@@ -275,6 +191,8 @@ const GameEngine = {
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
             var casaAlvo = parseInt(jogadorBola.posicao) + 1;
             var envolvidos = this.buscaJogadorCampo(casaAlvo);
+
+            this.jogo.stats[jogadorBola.time].toquesTentados = parseInt(this.jogo.stats[jogadorBola.time].toquesTentados + 1);
 
 
             //caso não tenha ninguem na casa a frente, toca pro lado;
@@ -300,49 +218,60 @@ const GameEngine = {
             var JogadorAlvo = envolvidos.atk[[this.randomNumber(envolvidos.atk.length)]];
             var indexJogadorAlvo = this.getIndexByCamisa(timeBola, JogadorAlvo.camisa);
 
+            
+            this.printaAcao(jogadorBola.nome + ' está com a bola e tenta o passe');
+            
+
             //passe perfeito
-            this.printaAcao(jogadorBola.nome + ' está com a bola')
-
-
-            if ( parseInt(jogadorBola.habilidades.toque) + this.randomNumber(10) < this.randomNumber(20) + this.getForcaDefesaCarrinho() || perfeito ) {
-                /* a ação */
-                this.jogo.posseBola.jogador = indexJogadorAlvo;
-                this.jogo.posseBola.posicao = JogadorAlvo.posicao;
-
-                this.printaAcao("acerta um passe perfeito para " + timeBola[indexJogadorAlvo].nome);
-
-                this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'perfeito');
-            }
-            //passe contestavel
-            else {
-                var tentouCortar = false;
-                var acaoDefesa = '';
-                var jogadorDef = '';
-                envolvidos.def.forEach(jogador => {
-                    if (!tentouCortar) {
-                        acaoDefesa = this.tentaCorte(jogador);
-                        tentouCortar = acaoDefesa.bool;
-                        jogadorDef = jogador;
-                    }
-                });
-                if (!tentouCortar) {
+            if ( parseInt(jogadorBola.habilidades.toque) + this.randomNumber(5) > this.randomNumber(10) + this.getForcaDefesaCarrinho() || perfeito == true) {
+                setTimeout(() => {
                     /* a ação */
                     this.jogo.posseBola.jogador = indexJogadorAlvo;
                     this.jogo.posseBola.posicao = JogadorAlvo.posicao;
-                    this.printaAcao('faz o passe para ' + timeBola[indexJogadorAlvo].nome);
-                    this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'sucesso');
-                } else {
-                    // acaoDefesa.funcao();
-                    if (acaoDefesa.funcao == 'carrinho') {
-                        this.printaAcao(jogadorDef.nome + 'tenta o corte');
-                        acaoDefesa.carrinho(jogadorDef);
-                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'falha');
-                    } else if (acaoDefesa.funcao == 'disputa') {
-                        acaoDefesa.disputa(jogadorAlvo, jogadorDef);
-                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'falha');
-                    }
 
-                }
+                    this.printaAcao("acerta um passe perfeito para " + timeBola[indexJogadorAlvo].nome);
+                    this.jogo.stats[jogadorBola.time].toquesPerfeitos = parseInt(this.jogo.stats[jogadorBola.time].toquesPerfeitos + 1);
+
+                    this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'perfeito');
+                }, 2000);
+            }
+            //passe contestavel
+            else {
+                setTimeout(() => {
+                    var tentouCortar = false;
+                    var acaoDefesa = '';
+                    var jogadorDef = '';
+                    envolvidos.def.forEach(jogador => {
+                        if (!tentouCortar) {
+                            acaoDefesa = this.tentaCorte(jogador);
+                            tentouCortar = acaoDefesa.bool;
+                            jogadorDef = jogador;
+                        }
+                    });
+                    if (!tentouCortar) { 
+                        /* a ação */
+                        this.jogo.posseBola.jogador = indexJogadorAlvo;
+                        this.jogo.posseBola.posicao = JogadorAlvo.posicao;
+                        this.printaAcao('faz o passe para ' + timeBola[indexJogadorAlvo].nome);
+                        this.jogo.stats[jogadorBola.time].toques = parseInt(this.jogo.stats[jogadorBola.time].toques + 1);
+                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'sucesso');
+                    } else {
+                        // acaoDefesa.funcao();
+                        if (acaoDefesa.funcao == 'carrinho') {
+                            this.printaAcao(jogadorDef.nome + 'tenta o corte');
+                            this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
+                            acaoDefesa.carrinho(jogadorDef);
+                            this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'falha');
+                            
+                        } else if (acaoDefesa.funcao == 'disputa') {
+                            this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
+                            acaoDefesa.disputa(jogadorAlvo, jogadorDef);
+                            
+                            this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'toque', 'falha');
+                        }
+
+                    }
+                }, 2000);
             }
             return true;
         },
@@ -380,6 +309,7 @@ const GameEngine = {
         },
 
         corrida: function (perfeito="false") {
+           // debugger
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
@@ -390,6 +320,7 @@ const GameEngine = {
             if (jogadorBola.posicao == 8) {
                 this.printaAcao('Mas sai com bola e tudo, e é tiro de meta');
                 // //debugger;
+                this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
                 this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'falha')
                 this.invertePosse(goleiro);
                 this.tiroMeta(goleiro);
@@ -404,62 +335,69 @@ const GameEngine = {
                 this.jogo.posseBola.posicao = timeBola[this.jogo.posseBola.jogador].posicao;
                 this.printaAcao(jogadorBola.nome + " avança com a bola");
                 this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'sucesso')
+                this.jogo.stats[jogadorBola.time].corridas = parseInt(this.jogo.stats[jogadorBola.time].corridas + 1);
                 return true;
             }
 
 
-            //corrida perfeita
-
-            if ( parseInt(jogadorBola.habilidades.corrida) + this.randomNumber(10) < this.randomNumber(20) + this.getForcaDefesaCorrida() || perfeito ) {
-                /* a ação */
-                this.printaAcao(jogadorBola.nome + ' segue sem marcação e avança');
-                timeBola[this.jogo.posseBola.jogador].posicao++;
-                this.jogo.posseBola.posicao = timeBola[this.jogo.posseBola.jogador].posicao;
-                this.printaAcao(jogadorBola.nome + " avança com a bola");
-                this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'perfeita')
-                return true;
-            }
-            //corrida contestável
-            else {
-                var tentouCortar = false;
-                var jogadorDef = false;
-                var acaoDefesa = '';
-                envolvidos.def.forEach(jogador => {
-                    if (!tentouCortar) {
-                        acaoDefesa = this.tentaCorte(jogador);
-                        tentouCortar = acaoDefesa.bool;
-                        jogadorDef = jogador;
-                    }
-                });
-                if (!tentouCortar) {
+            setTimeout(() => {
+                //corrida perfeita
+                if ( parseInt(jogadorBola.habilidades.corrida) + this.randomNumber(10) < this.randomNumber(20) + this.getForcaDefesaCorrida() || perfeito ) {
                     /* a ação */
-                    this.printaAcao(jogadorBola.nome + ' consegue escapar da marcação e segue com ela');
-                    console.log(jogadorDef);
+                    this.printaAcao(jogadorBola.nome + ' segue sem marcação e avança');
                     timeBola[this.jogo.posseBola.jogador].posicao++;
-                    // //debugger;
                     this.jogo.posseBola.posicao = timeBola[this.jogo.posseBola.jogador].posicao;
                     this.printaAcao(jogadorBola.nome + " avança com a bola");
-                    this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'sucesso');
-                } else {
-                    // acaoDefesa.funcao();
-                    if (acaoDefesa.funcao == 'carrinho') {
-                        acaoDefesa.carrinho(jogadorDef);
-                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'falha');
-                    } else if (acaoDefesa.funcao == 'disputa') {
-                        acaoDefesa.disputa(jogadorBola, jogadorDef);
-                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'falha');
+                    this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'perfeita');
+                    this.jogo.stats[jogadorBola.time].corridas = parseInt(this.jogo.stats[jogadorBola.time].corridas + 1);
+                    return true;
+                }
+                //corrida contestável
+                else {
+                    var tentouCortar = false;
+                    var jogadorDef = false;
+                    var acaoDefesa = '';
+                    envolvidos.def.forEach(jogador => {
+                        if (!tentouCortar) {
+                            acaoDefesa = this.tentaCorte(jogador);
+                            tentouCortar = acaoDefesa.bool;
+                            jogadorDef = jogador;
+                        }
+                    });
+                    if (!tentouCortar) {
+                        /* a ação */
+                        this.printaAcao(jogadorBola.nome + ' consegue escapar da marcação e segue com ela');
+                        console.log(jogadorDef);
+                        timeBola[this.jogo.posseBola.jogador].posicao++;
+                        // //debugger;
+                        this.jogo.posseBola.posicao = timeBola[this.jogo.posseBola.jogador].posicao;
+                        this.printaAcao(jogadorBola.nome + " avança com a bola");
+                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'sucesso');
+                        this.jogo.stats[jogadorBola.time].corridas = parseInt(this.jogo.stats[jogadorBola.time].corridas + 1);
+                    } else {
+                        // acaoDefesa.funcao();
+                        if (acaoDefesa.funcao == 'carrinho') {
+                            this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
+                            acaoDefesa.carrinho(jogadorDef);
+                            this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'falha');
+                        } else if (acaoDefesa.funcao == 'disputa') {
+                            this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
+                            acaoDefesa.disputa(jogadorBola, jogadorDef);
+                            this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'corrida', 'falha');
+                        }
                     }
                 }
-            }
+            }, 2000);
             return true;
         },
 
-        chute: function (perfeito) {
+        chute: function (perfeito=false) {
+            //debugger
+            
+                
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
             var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
-
-
             // ////debugger;
             var necessarioDado = null; //numero necessario para a ação ser concluida
 
@@ -483,35 +421,45 @@ const GameEngine = {
 
             if (necessarioDado == 0) {
                 this.printaAcao(jogadorBola.nome + ' isola a bola para frente!');
+                this.jogo.stats[jogadorBola.time].rifadas = parseInt(this.jogo.stats[jogadorBola.time].rifadas + 1);
                 this.rifaBola(parseInt(jogadorBola.posicao) + 2);
+                
                 return false;
-            }
+            } else{
+                this.jogo.stats[jogadorBola.time].chutes = parseInt(this.jogo.stats[jogadorBola.time].chutes + 1);
 
-            this.printaAcao(jogadorBola.nome + ' chutou!');
-            //rola o dado para ver se a ação deu bom ou nao
-            // //debugger;
-            if (this.randomNumber(10) <= necessarioDado) {
-                this.printaAcao('a bola vai em direção ao gol');
-                this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'chute', 'sucesso');
-                // goleiro.acoes[this.rolaDado()](jogadorBola);
-                // //debugger
-                if (typeof goleiro.acoes[this.rolaDado()] === "function") {
-                    goleiro.acoes[this.rolaDado()](jogadorBola)
-                } else {
-                    this[goleiro.acoes[this.rolaDado()]](jogadorBola); //calling function by string name
-                }
-            } else {
-                this.printaAcao('PRA FORA');
-                this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'chute', 'falha');
-                this.invertePosse(goleiro);
-                this.tiroMeta(goleiro);
+                this.printaAcao(jogadorBola.nome + ' chutou!');
+                
+                setTimeout(() => { 
+                    //rola o dado para ver se a ação deu bom ou nao
+                    if (this.randomNumber(10) <= necessarioDado) {
+                        this.printaAcao('a bola vai em direção ao gol');
+                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'chute', 'sucesso');
+                        // goleiro.acoes[this.rolaDado()](jogadorBola);
+                        this.jogo.stats[jogadorBola.time].chutesAGol = parseInt(this.jogo.stats[jogadorBola.time].chutesAGol + 1);
+                        setTimeout(() => { 
+                            if (typeof goleiro.acoes[this.rolaDado()] === "function") {
+                                goleiro.acoes[this.rolaDado()](jogadorBola)
+                            } else {
+                                this[goleiro.acoes[this.rolaDado()]](jogadorBola); //calling function by string name
+                            }
+                        },2000);
+                    } else {
+                        this.printaAcao('PRA FORA');
+                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'chute', 'falha');
+                        this.invertePosse(goleiro);
+                        this.tiroMeta(goleiro);
+                    }
+                }, 2000);
+                
+                
             }
 
 
         },
 
 
-        lancamento: function (perfeito="false") {
+        lancamento: function (perfeito=false) {
             ////debugger;
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
@@ -534,6 +482,7 @@ const GameEngine = {
             //caso nao tenha ninguem na casa ao lado;
             if (envolvidos.atk.length == 0) {
                 this.invertePosse(this.buscaJogadorCampoDef(jogadorBola.posicao[0]));
+                this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
                 this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'falha');
                 return false;
             }
@@ -542,48 +491,57 @@ const GameEngine = {
             var jogadorAlvo = this.getIndexByCamisa(timeBola, camisaJogadorAlvo);
 
             
-            this.printaAcao(jogadorBola.nome + ' está com a bola')
+            this.printaAcao(jogadorBola.nome + ' está com a bola');
 
-            //passe perfeito
-            if (parseInt(jogadorBola.habilidades.lancamento) + this.randomNumber(10) < this.randomNumber(30) + this.getForcaDefesaCarrinho()) {
-                /* a ação */
-                this.jogo.posseBola.jogador = jogadorAlvo;
-                this.jogo.posseBola.posicao = timeBola[jogadorAlvo].posicao;
-                this.printaAcao("acerta um lançamento perfeito para " + timeBola[jogadorAlvo].nome);
-                this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'perfeito');
-            }
-            //passe contestavel
-            else {
-                var tentouCortar = false;
-                var acaoDefesa = '';
-                var jogadorDef = '';
-                envolvidos.def.forEach(jogador => {
-                    if (!tentouCortar) {
-                        acaoDefesa = this.tentaCorte(jogador);
-                        tentouCortar = acaoDefesa.bool;
-                        jogadorDef = jogador;
-                    }
-                });
-                if (!tentouCortar) {
+            setTimeout(() => {
+                //passe perfeito
+                if (parseInt(jogadorBola.habilidades.lancamento) + this.randomNumber(10) > this.randomNumber(30) + this.getForcaDefesaCarrinho()) {
                     /* a ação */
+                    this.jogo.stats[jogadorBola.time].lancamentosPerfeitos = parseInt(this.jogo.stats[jogadorBola.time].lancamentosPerfeitos + 1);
                     this.jogo.posseBola.jogador = jogadorAlvo;
                     this.jogo.posseBola.posicao = timeBola[jogadorAlvo].posicao;
-                    this.printaAcao('faz o lançamento para ' + timeBola[jogadorAlvo].nome);
-                    this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'sucesso');
-                    if (timeBola[jogadorAlvo].posicao == 8) {
-                        this.cabecada(timeBola[jogadorAlvo]);
-                    }
-                } else {
-                    // acaoDefesa.funcao();
-                    if (acaoDefesa.funcao == 'carrinho') {
-                        acaoDefesa.carrinho(jogadorDef);
-                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'falha');
-                    } else if (acaoDefesa.funcao == 'disputa') {
-                        acaoDefesa.disputa(jogadorAlvo, jogadorDef);
-                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'falha');
+                    this.printaAcao("acerta um lançamento perfeito para " + timeBola[jogadorAlvo].nome);
+
+                    this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'perfeito');
+                }
+                //passe contestavel
+                else {
+                    var tentouCortar = false;
+                    var acaoDefesa = '';
+                    var jogadorDef = '';
+                    envolvidos.def.forEach(jogador => {
+                        if (!tentouCortar) {
+                            acaoDefesa = this.tentaCorte(jogador);
+                            tentouCortar = acaoDefesa.bool;
+                            jogadorDef = jogador;
+                        }
+                    });
+                    if (!tentouCortar) {
+                        /* a ação */
+                        this.jogo.posseBola.jogador = jogadorAlvo;
+                        this.jogo.posseBola.posicao = timeBola[jogadorAlvo].posicao;
+                        this.printaAcao('faz o lançamento para ' + timeBola[jogadorAlvo].nome);
+                        this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'sucesso');
+                        this.jogo.stats[jogadorBola.time].lancamentos = parseInt(this.jogo.stats[jogadorBola.time].lancamentos + 1);
+                        if (timeBola[jogadorAlvo].posicao == 8) {
+                            if(this.randomNumber(10) <= 3){
+                                this.printaAcao(timeBola[jogadorAlvo].nome + " se antecipa e tenta o cabeçeio!");
+                                this.cabecada(timeBola[jogadorAlvo]);
+                            }
+                        }
+                    } else {
+                        // acaoDefesa.funcao();
+                        if (acaoDefesa.funcao == 'carrinho') {
+                            this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
+                            acaoDefesa.carrinho(jogadorDef);
+                            this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'falha');
+                        } else if (acaoDefesa.funcao == 'disputa') {
+                            acaoDefesa.disputa(jogadorAlvo, jogadorDef);
+                            this.mensuraJogada(jogadorBola.time, this.getIndexByCamisa(timeBola, jogadorBola.camisa), 'lancamento', 'falha');
+                        }
                     }
                 }
-            }
+            }, 2000);
             return true;
         },
 
@@ -591,37 +549,68 @@ const GameEngine = {
             var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
             var jogadorBola = timeBola[this.jogo.posseBola.jogador];
             var casaAlvo = parseInt(jogadorBola.posicao);
-            var defensores = this.buscaJogadorCampoDef(casaAlvo);
-            var jogadorDef = defensores[this.randomNumber(defensores.length)];
+            var defensores = this.buscaJogadorCampoDef(9 - casaAlvo);
+            //caso a casa de defesa esteja vazia
+            if(defensores.length == 0){
+                timeBola[this.jogo.posseBola.jogador].posicao = parseInt(timeBola[this.jogo.posseBola.jogador].posicao) + 1;
+                casaAlvo = parseInt(jogadorBola.posicao);
+                defensores = this.buscaJogadorCampoDef(9 - casaAlvo);
+            }
+            // se de novo não tiver ninguem avança de novo
+            if(defensores.length == 0){
+                timeBola[this.jogo.posseBola.jogador].posicao = parseInt(timeBola[this.jogo.posseBola.jogador].posicao) + 1;
+                casaAlvo = parseInt(jogadorBola.posicao);
+                defensores = this.buscaJogadorCampoDef(9 - casaAlvo);
+            }
+            // se de novo não tiver ninguem avança de novo
+            if(defensores.length == 0){
+                timeBola[this.jogo.posseBola.jogador].posicao = parseInt(timeBola[this.jogo.posseBola.jogador].posicao) + 1;
+                casaAlvo = parseInt(jogadorBola.posicao);
+                defensores = this.buscaJogadorCampoDef(9 - casaAlvo);
+            }
 
+
+
+            var jogadorDef = defensores[this.randomNumber(defensores.length)];
+            //debugger
             this.printaAcao(jogadorBola.nome + ' ginga pra cima de '+ jogadorDef.nome +' e tenta o drible');
 
-            if( parseInt(jogadorBola.habilidades.drible) + this.randomNumber(20) > parseInt(jogadorDef.habilidades.carrinho) + this.randomNumber(20) ){
-                //caso o drible seja feito, automaticamente faz uma nova ação
-                this.printaAcao(jogadorBola.nome + ' ultrapassa '+ jogadorDef.nome);
-
-                
-                //dependendo da região do campo, o jogador pode fazer uma das seguintes ações
-                var acoesPossiveis = [];
-                if(jogadorBola.posicao <= 5){
-                    acoesPossiveis = [this.toque,this.lancamento, this.corrida, this.falta];
-                }
-                if(jogadorBola.posicao > 5 && jogadorBola.posicao < 8){
-                    acoesPossiveis = [this.toque,this.lancamento, this.corrida, this.chute, this.falta];
+            setTimeout(() => {
+                if( parseInt(jogadorBola.habilidades.drible) + this.randomNumber(20) > parseInt(jogadorDef.habilidades.carrinho) + this.randomNumber(20) ){
+                    //caso o drible seja feito, automaticamente faz uma nova ação
+                    this.printaAcao(jogadorBola.nome + ' faz o drible em cima de '+ jogadorDef.nome);
+    
+                    
+                    setTimeout(() => {
+                         //dependendo da região do campo, o jogador pode fazer uma das seguintes ações
+                        var acoesPossiveis = [];
+                        if(jogadorBola.posicao <= 5){
+                            acoesPossiveis = ["toque","lancamento", "corrida", "falta"];
+                        }
+                        if(jogadorBola.posicao > 5 && jogadorBola.posicao < 8){
+                            acoesPossiveis = ["toque","lancamento", "corrida", "chute","falta"];
+                        } else{
+                            acoesPossiveis = ["chute", "falta"];
+                        }
+    
+                        //sorteia uma das ações possiveis e a executa
+                        //debugger
+    
+                        this.jogo.stats[jogadorBola.time].dribles = parseInt(this.jogo.stats[jogadorBola.time].dribles + 1);
+    
+    
+                        var acaoRealizada = acoesPossiveis[this.randomNumber(acoesPossiveis.length)];
+                        console.log(acaoRealizada);
+    
+                        this[acaoRealizada](true);
+                    }, 2000);
                 } else{
-                    acoesPossiveis = [this.chute, this.falta];
+                    //caso não de certo, o time perde a bola
+                    this.jogo.stats[jogadorBola.time].erros = parseInt(this.jogo.stats[jogadorBola.time].erros + 1);
+                    this.printaAcao(jogadorDef.nome + ' se antecipa e faz o corte!');
+                    this.invertePosse(jogadorDef);
                 }
-
-                //sorteia uma das ações possiveis e a executa
-                var acaoRealizada = this.acoesPossiveis[this.randomNumber(this.acoesPossiveis.length)];
-                console.log(acaoRealizada);
-
-                acaoRealizada(true);
-            } else{
-                //caso não de certo, o time perde a bola
-                this.printaAcao(jogadorDef.nome + ' se antecipa e faz o corte!');
-                this.invertePosse(jogadorDef);
-            }
+            }, 2000);
 
             return false;
         },
@@ -642,8 +631,11 @@ const GameEngine = {
             }
             if (this.randomNumber(25) < parseInt(jogadorDef.habilidades.carrinho)) {
                 this.printaAcao('carrinho bem executado e ' + jogadorDef.nome + ' rouba a bola');
+                
                 this.mensuraJogada(jogadorDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, jogadorDef.camisa), 'carrinho', 'sucesso');
                 this.invertePosse(jogadorDef);
+                //debugger
+                this.jogo.stats[jogadorDef.time].roubos = parseInt(this.jogo.stats[jogadorDef.time].roubos + 1);
             } else {
                 this.printaAcao('' + jogadorDef.nome + ' tenta o carrinho e faz a falta');
                 this.mensuraJogada(jogadorDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, jogadorDef.camisa), 'carrinho', 'falha');
@@ -674,32 +666,37 @@ const GameEngine = {
             this.printaAcao(pDef.nome + ' divide a bola com ' + pAtk.nome);
             var dadoAtk = parseInt(pAtk.habilidades.forca) + this.randomNumber(25);
             var dadoDef = parseInt(pDef.habilidades.forca) + this.randomNumber(25);
-            if (dadoAtk > dadoDef) {
-                this.printaAcao(pAtk.nome + ' ganha a bola e fica com a bola!');
-                this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'disputa', 'sucesso');
-                this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'disputa', 'falha');
-            } else {
-                var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
-                if (pDef.camisa == goleiro.camisa) {
-                    this.printaAcao(pDef.nome + ' sai e faz a defesa');
+            setTimeout(() => {
+                if (dadoAtk > dadoDef) {
+                    this.printaAcao(pAtk.nome + ' ganha a bola e fica com a bola!');
+                    this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'disputa', 'sucesso');
+                    this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'disputa', 'falha');
+                } else {
+                    var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
+                    
+                    if (pDef.camisa == goleiro.camisa) {
+                        this.printaAcao(pDef.nome + ' sai e faz a defesa');
+                        this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'disputa', 'falha');
+                        this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'disputa', 'sucesso');
+                        this.invertePosse(pDef);
+                        this.tiroMeta(goleiro);
+                        return true;
+                    }
+                    this.printaAcao(pDef.nome + ' vence no ombro e rouba a bola!');
                     this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'disputa', 'falha');
                     this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'disputa', 'sucesso');
                     this.invertePosse(pDef);
-                    this.tiroMeta(goleiro);
-                    return true;
+                    //debugger
+                    this.jogo.stats[pAtk.time].roubos = parseInt(this.jogo.stats[pAtk.time].roubos + 1);
                 }
-                this.printaAcao(pDef.nome + ' vence no ombro e rouba a bola!');
-                this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'disputa', 'falha');
-                this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'disputa', 'sucesso');
-                this.invertePosse(pDef);
-            }
+            }, 2000);
 
 
             return true;
         },
 
         resetarTime: function () {
-            // //debugger;
+            debugger;
             this.jogo.timeHome.jogadores = $.extend(true, [], this.jogo.jTimeHome);
             this.jogo.timeAway.jogadores = $.extend(true, [], this.jogo.jTimeAway);
             return false;
@@ -727,20 +724,22 @@ const GameEngine = {
             var dadoDef = parseInt(pDef.habilidades.jogoAereo) + this.randomNumber(25);
             this.printaAcao('É escanteio!');
             // this.printaAcao('');
-            if (dadoAtk > dadoDef) {
-                this.printaAcao(pAtk.nome + 'tenta o cabeçeio');
-                this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'cabeceio', 'sucesso');
-                this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'cabeceio', 'falha');
-                this.cabecada(pAtk);
-            } else {
-                this.printaAcao(pDef.nome + 'tira de cabeça');
-                this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'cabeceio', 'falha');
-                this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'cabeceio', 'sucesso');
-                this.rifaBola(7);
-                return false;
-                // this.invertePosse(pDef);
-            }
-            return true;
+            setTimeout(() => {
+                if (dadoAtk > dadoDef) {
+                    this.printaAcao(pAtk.nome + 'tenta o cabeçeio');
+                    this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'cabeceio', 'sucesso');
+                    this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'cabeceio', 'falha');
+                    this.cabecada(pAtk);
+                } else {
+                    this.printaAcao(pDef.nome + 'tira de cabeça');
+                    this.mensuraJogada(pAtk.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, pAtk.camisa), 'cabeceio', 'falha');
+                    this.mensuraJogada(pDef.time, this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeDef].jogadores, pDef.camisa), 'cabeceio', 'sucesso');
+                    this.rifaBola(7);
+                    return false;
+                    // this.invertePosse(pDef);
+                }
+                return true;
+            }, 1000);
         },
 
         rifaBola: function (posicaoAtk) {
@@ -785,21 +784,23 @@ const GameEngine = {
 
         falta: function (perfeito="false") {
             ////debugger;
-            var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
-            var jogadorBola = timeBola[this.jogo.posseBola.jogador];
-            this.resetarTime();
+            setTimeout(() => {
+                var timeBola = this.jogo[this.jogo.posseBola.timeAtk].jogadores;
+                var jogadorBola = timeBola[this.jogo.posseBola.jogador];
+                this.resetarTime();
 
-            // this.proximaJogada();
-            if (jogadorBola.posicao == 8) {
-                this.penalti(jogadorBola);
-            } else {
-                // jogadorBola.acoes[this.rolaDado()]();
-                if (typeof jogadorBola.acoes[this.rolaDado()] === "function") {
-                    jogadorBola.acoes[this.rolaDado()]()
+                // this.proximaJogada();
+                if (jogadorBola.posicao == 8) {
+                    this.penalti(jogadorBola);
                 } else {
-                    this[jogadorBola.acoes[this.rolaDado()]](); //calling function by string name
+                    // jogadorBola.acoes[this.rolaDado()]();
+                    if (typeof jogadorBola.acoes[this.rolaDado()] === "function") {
+                        jogadorBola.acoes[this.rolaDado()]()
+                    } else {
+                        this[jogadorBola.acoes[this.rolaDado()]](); //calling function by string name
+                    }
                 }
-            }
+            }, 2000);
 
         },
 
@@ -812,15 +813,16 @@ const GameEngine = {
             var forcaChute = parseInt(jogadorBola.habilidades.chute) + this.randomNumber(35);
 
             this.printaAcao(jogadorBola.nome + ' vai para o chute');
-            if (forcaGoleiro >= forcaChute) {
-                /*a acao */
-                this.printaAcao('Defende ' + goleiro.nome);
-                this.invertePosse(this.jogo[this.jogo.posseBola.timeDef].jogadores[0]);
-
-            } else {
-                this.gol(jogadorBola.nome);
-
-            }
+            setTimeout(() => {
+                if (forcaGoleiro >= forcaChute) {
+                    /*a acao */
+                    this.printaAcao('Defende ' + goleiro.nome);
+                    this.invertePosse(this.jogo[this.jogo.posseBola.timeDef].jogadores[0]);
+    
+                } else {
+                    this.gol(jogadorBola.nome);
+                }
+            }, 2000);
         },
 
         tiroMeta: function (goleiro) {
@@ -842,8 +844,10 @@ const GameEngine = {
             } else {
                 this.jogo.timeAway.placar++;
             }
-            this.marcaGol(jogadorNome);
-            this.posGol();
+            setTimeout(() => {
+                this.marcaGol(jogadorNome);
+                this.posGol();
+            }, 2000);
             
         },
 
@@ -871,33 +875,35 @@ const GameEngine = {
         rebote: function () {
             ////debugger;
             this.printaAcao('bola tá viva dentro da área !');
-            var envolvidos = this.buscaJogadorCampo(8);
-            // ////debugger;
-            if (envolvidos.atk.length == 0) {
-                this.printaAcao('e ele pega em 2 tempos e fica tranquilo com ela');
-                this.invertePosse(this.jogo[this.jogo.posseBola.timeDef].jogadores[0]);
+            setTimeout(() => {
+                var envolvidos = this.buscaJogadorCampo(8);
+                // ////debugger;
+                if (envolvidos.atk.length == 0) {
+                    this.printaAcao('e ele pega em 2 tempos e fica tranquilo com ela');
+                    this.invertePosse(this.jogo[this.jogo.posseBola.timeDef].jogadores[0]);
 
-            }
-            if (envolvidos.atk.length > 0) {
-
-                if (envolvidos.def.length == 1) {
-                    // //debugger;
-                    // this.jogo.posseBola.jogador = envolvidos.atk[0].camisa;
-                    this.jogo.posseBola.jogador = this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, envolvidos.atk[0].camisa);
-                    this.jogo.posseBola.posicao = envolvidos.atk[0].posicao;
-                    this.printaAcao('cai nos pés do centrovante que já tenta o chute! ');
-                    this.chute();
-                } else {
-                    var envolvidoAtk = envolvidos.atk[this.randomNumber(envolvidos.atk.length)];
-                    var envolvidoDef = envolvidos.def[this.randomNumber(envolvidos.def.length)];
-                    this.disputa(envolvidoAtk, envolvidoDef);
                 }
-            } else {
-                var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
-                this.printaAcao('e sobra tranquila nas mãos do goleiro');
-                this.invertePosse(goleiro);
-                this.tiroMeta(goleiro);
-            }
+                if (envolvidos.atk.length > 0) {
+
+                    if (envolvidos.def.length == 1) {
+                        // //debugger;
+                        // this.jogo.posseBola.jogador = envolvidos.atk[0].camisa;
+                        this.jogo.posseBola.jogador = this.getIndexByCamisa(this.jogo[this.jogo.posseBola.timeAtk].jogadores, envolvidos.atk[0].camisa);
+                        this.jogo.posseBola.posicao = envolvidos.atk[0].posicao;
+                        this.printaAcao('cai nos pés do centrovante que já tenta o chute! ');
+                        this.chute();
+                    } else {
+                        var envolvidoAtk = envolvidos.atk[this.randomNumber(envolvidos.atk.length)];
+                        var envolvidoDef = envolvidos.def[this.randomNumber(envolvidos.def.length)];
+                        this.disputa(envolvidoAtk, envolvidoDef);
+                    }
+                } else {
+                    var goleiro = this.jogo[this.jogo.posseBola.timeDef].jogadores[0];
+                    this.printaAcao('e sobra tranquila nas mãos do goleiro');
+                    this.invertePosse(goleiro);
+                    this.tiroMeta(goleiro);
+                }
+            }, 2000);
 
         },
 
@@ -945,14 +951,16 @@ const GameEngine = {
             var forcaGoleiro = goleiro.habilidades.jogoAereo + this.randomNumber(30);
             var forcaCabecada = jogadorBola.habilidades.jogoAereo + this.randomNumber(20);
 
-
-            if (forcaGoleiro >= forcaCabecada) {
-                this.printaAcao(goleiro.nome + ' defende!');
-                /*a acao */
-                this.invertePosse(this.jogo[this.jogo.posseBola.timeDef].jogadores[0]);
-            } else {
-                this.gol(jogadorBola.nome);
-            }
+            this.printaAcao(jogadorBola.nome + ' cabeceia!!!');
+            setTimeout(() => {
+                if (forcaGoleiro >= forcaCabecada) {
+                    this.printaAcao(goleiro.nome + ' defende a cabeçada!');
+                    /*a acao */
+                    this.invertePosse(this.jogo[this.jogo.posseBola.timeDef].jogadores[0]);
+                } else {
+                    this.gol(jogadorBola.nome);
+                }
+            }, 2000);
 
         },
 

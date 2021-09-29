@@ -12,7 +12,9 @@ const GameObj = {
                     "3": "espalma",
                     "4": "espalma",
                     "5": "espalmaFora",
-                    "6": "espalmaFora"
+                    "6": "espalmaFora",
+                    "7": "defende",
+                    "8": "espalma"
                 };
                 position = "1";
 
@@ -24,7 +26,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "disputa",
+                    "8": "lancamento"
                 };
                 position = "1";
                 break;
@@ -35,7 +39,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "disputa",
+                    "8": "lancamento"
                 };
                 position = "2";
 
@@ -47,9 +53,11 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "corrida",
+                    "8": "lancamento"
                 };
-                position = "2";
+                position = "1";
 
                 break;
             case "Lateral":
@@ -59,7 +67,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "corrida",
+                    "8": "lancamento"
                 };
                 position = "2";
                 break;
@@ -70,7 +80,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "corrida",
+                    "8": "lancamento"
                 };
                 position = "3";
                 break;
@@ -81,7 +93,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "corrida",
+                    "8": "lancamento"
                 };
                 position = "4";
                 break;
@@ -92,7 +106,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "disputa",
+                    "8": "lancamento"
                 };
                 position = "3";
                 break;
@@ -103,7 +119,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "disputa",
+                    "8": "lancamento"
                 };
                 position = "3";
                 break;
@@ -114,7 +132,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "disputa",
+                    "8": "lancamento"
                 };
                 position = "4";
                 break;
@@ -126,7 +146,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "disputa",
+                    "8": "lancamento"
                 };
                 position = "5";
                 break;
@@ -137,7 +159,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "disputa",
+                    "8": "lancamento"
                 };
                 position = "6";
                 break;
@@ -148,7 +172,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "toque",
+                    "8": "lancamento"
                 };
                 position = "4";
                 break;
@@ -159,7 +185,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "toque",
+                    "8": "lancamento"
                 };
                 position = "5";
                 break;
@@ -171,7 +199,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "toque",
+                    "8": "lancamento"
                 };
                 position = "6";
                 break;
@@ -182,7 +212,22 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "chute",
+                    "8": "toque"
+                };
+                position = "7";
+                break;
+            case "Ponta":
+                atts = {
+                    "1": "carrinho",
+                    "2": "chute",
+                    "3": "toque",
+                    "4": "drible",
+                    "5": "chute",
+                    "6": "corrida",
+                    "7": "drible",
+                    "8": "lancamento"
                 };
                 position = "7";
                 break;
@@ -193,7 +238,9 @@ const GameObj = {
                     "3": "toque",
                     "4": "drible",
                     "5": "chute",
-                    "6": "corrida"
+                    "6": "corrida",
+                    "7": "drible",
+                    "8": "chute"
                 };
                 position = "8";
                 break;
@@ -235,39 +282,73 @@ const GameObj = {
             },
         };
         /** separar desse componente */
+        
+        matchTeams.homeTeam.starting11 = JSON.parse(matchTeams.homeTeam.starting11);
         matchTeams.homeTeam.starting11.map((player, index) => {
+             
             let dynamicsAtts = this.fillPositionAndAttsByRole(player);
             player.posicao = dynamicsAtts.position;
             player.acoes = dynamicsAtts.atts;
             player.camisa = index + 1;
-            player.nome = player.name;
+            player.nome = player.nome_completo;
             player.time = "timeHome";
+            player.habilidades = {};
+            // debugger
+            player.habilidades.drible = player.drible;
+            player.habilidades.corrida = player.corrida;
+            player.habilidades.chute = player.chute;
+            player.habilidades.toque = player.toque;
+            player.habilidades.lancamento = player.lancamento;
+            player.habilidades.carrinho = player.carrinho;
+            player.habilidades.forca = player.forca;
+            player.habilidades.jogoAereo = player.jogo_aereo;
+            player.habilidades.penalti = player.penalti;
+            player.habilidades.defende = player.defende;
+            player.habilidades.espalma = player.espalma;
+            player.habilidades.espalmaFora = player.espalma_fora;
+            player.habilidades.reposicao = player.reposicao;
+            
 
             match.homeTeam.jogadores.push(player);
             match.homeTeam.inicial.push(player);
-            match.homeTeam.cores.principal = matchTeams.homeTeam.colors.primary;
-            match.homeTeam.cores.secundaria = matchTeams.homeTeam.colors.secondary;
-            match.homeTeam.teamId = matchTeams.homeTeam.teamId;
+            match.homeTeam.cores.principal = matchTeams.homeTeam.cor_principal;
+            match.homeTeam.cores.secundaria = matchTeams.homeTeam.cor_secundaria;
+            match.homeTeam.teamId = matchTeams.homeTeam.slug;
         });
 
 
-
+        matchTeams.awayTeam.starting11 = JSON.parse(matchTeams.awayTeam.starting11);
         matchTeams.awayTeam.starting11.map((player, index) => {
             let dynamicsAtts = this.fillPositionAndAttsByRole(player);
             player.posicao = dynamicsAtts.position;
             player.acoes = dynamicsAtts.atts;
             player.camisa = index + 1;
-            player.nome = player.name;
+            player.nome = player.nome_completo;
             player.time = "timeAway";
+            player.habilidades = {};
+            // debugger
+            player.habilidades.drible = player.drible;
+            player.habilidades.corrida = player.corrida;
+            player.habilidades.chute = player.chute;
+            player.habilidades.toque = player.toque;
+            player.habilidades.lancamento = player.lancamento;
+            player.habilidades.carrinho = player.carrinho;
+            player.habilidades.forca = player.forca;
+            player.habilidades.jogoAereo = player.jogo_aereo;
+            player.habilidades.penalti = player.penalti;
+            player.habilidades.defende = player.defende;
+            player.habilidades.espalma = player.espalma;
+            player.habilidades.espalmaFora = player.espalma_fora;
+            player.habilidades.reposicao = player.reposicao;
 
             match.awayTeam.jogadores.push(player);
             match.awayTeam.inicial.push(player);
-            match.awayTeam.cores.principal = matchTeams.awayTeam.colors.primary;
-            match.awayTeam.cores.secundaria = matchTeams.awayTeam.colors.secondary;
-            match.awayTeam.teamId = matchTeams.awayTeam.teamId;
+            match.awayTeam.cores.principal = matchTeams.awayTeam.cor_principal;
+            match.awayTeam.cores.secundaria = matchTeams.awayTeam.cor_secundaria;
+            match.awayTeam.teamId = matchTeams.awayTeam.slug;
         });
-        match.homeTeam.nome = matchTeams.homeTeam.name;
-        match.awayTeam.nome = matchTeams.awayTeam.name;
+        match.homeTeam.nome = matchTeams.homeTeam.nome;
+        match.awayTeam.nome = matchTeams.awayTeam.nome;
 
         return match;
         // this.getMatch();

@@ -144,6 +144,85 @@ const Formations = {
                 return formation;
             }
         });
+    },
+    getPositionByRole: function(role){
+        var position = '';
+        switch (role) {
+            case "Goleiro":
+                position = '1';
+                break;
+
+            case "Zagueiro Cobertura":
+                position = '1';
+                break;
+        
+            case "Zagueiro Combate":
+                position = '2';
+                break;
+        
+            case "Lateral Recuado":
+                position = '1';
+                break;
+        
+            case "Lateral":
+                position = '2';
+                break;
+        
+            case "Ala":
+                position = '3';
+                break;
+        
+            case "Ala Ofensivo":
+                position = '4';
+                break;
+        
+            case "Cabeça de Área":
+                position = '3';
+                break;
+        
+            case "Volante Recuado":
+                position = '3';
+                break;
+        
+            case "Volante":
+                position = '4';
+                break;
+        
+            case "Meia Central":
+                position = '5';
+                break;
+        
+            case "Meia Avançado":
+                position = '6';
+                break;
+        
+            case "Armador Recuado":
+                position = '4';
+                break;
+        
+            case "Armador":
+                position = '5';
+                break;
+        
+            case "Armador Avançado":
+                position = '6';
+                break;
+        
+            case "Segundo Atacante":
+                position = '7';
+                break;
+        
+            case "Centrovante":
+                position = '8';
+                break;
+        
+            default:
+                break;
+        }
+
+        return {
+            'position' : position
+        }
     }
 };
 

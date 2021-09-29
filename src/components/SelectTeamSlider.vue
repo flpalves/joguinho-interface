@@ -12,7 +12,7 @@
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper> 
     <swiper class="swiper" :options="swiperOption" ref="team" @slideChange="onChangeTeam" @init="onChangeTeam">
-      <swiper-slide v-for="(team, index) in selectedLeague.teams" :key="index">{{team.name}}</swiper-slide>
+      <swiper-slide v-for="(team, index) in selectedLeague.teams" :key="index">{{team.nome}}</swiper-slide>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>

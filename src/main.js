@@ -4,6 +4,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
+import * as fb from './firebase';
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -21,6 +22,8 @@ Vue.prototype.$GameEngine = GameEngine.GameEngine;
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueAwesomeSwiper)
+Vue.use(fb)
+
 
 
 Vue.config.productionTip = false

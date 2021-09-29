@@ -3,27 +3,26 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h1>Táticas de {{this.teamName}}</h1>
+          <!-- <h1>Táticas de {{this.match.homeTeam.nome}}</h1> -->
         </div>
       </div>
       <div class="row">
-        <SelectTatics teamSide="home" :selectedTeam="this.match.homeTeam" @saveTatics="saveTatics" />
+        <SelectTaticsLaravel v-if="this.match.homeTeam" teamSide="home" :selectedteam="this.match.homeTeam" @savetatics="saveTatics" />
       </div>
     </div>
   </div>
 </template> 
 <script>
-import SelectTatics from "@/components/SelectTatics";
+import SelectTaticsLaravel from "@/components/SelectTaticsLaravel";
 
 export default {
   name: 'HomeSelectTatics', 
   components : {
-    SelectTatics
+    SelectTaticsLaravel
   },
   data() {
     return {
-      match: {},
-      teamName :''
+      match: {}
     };
   },
   methods: {
@@ -33,12 +32,14 @@ export default {
       // console.log(this.match); 
     },
     saveTatics: function(team){
-      this.$store.commit('INSERTHOMETEAM', team);
+      // this.$store.commit('INSERTHOMETEAM', team);
+      this.$store.commit('SAVEFORMATIONANDSTART11HOME', team);
     }
   },
   mounted() {
     this.$store.commit("LOADBYSTORAGE");
     this.getMatch();
+    
   }
 }
 </script>

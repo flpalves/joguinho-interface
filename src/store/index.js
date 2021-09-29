@@ -32,7 +32,9 @@ export default new Vuex.Store({
     },
     INSERTHOMETEAM(state, payload){
       state.match.homeTeam = payload;
+      debugger
       localStorage.setItem('match',JSON.stringify(state.match));
+
     },
     INSERTAWAYTEAM(state, payload){
       state.match.awayTeam = payload;
@@ -82,6 +84,16 @@ export default new Vuex.Store({
         state.match = storageMatch; 
       }
     },
+    SAVEFORMATIONANDSTART11HOME(state, payload){
+      state.match.homeTeam.selected_formation = payload.selectedformation;
+      state.match.homeTeam.starting11 = JSON.stringify(payload.starting11);
+      localStorage.setItem('match',JSON.stringify(state.match));
+    },
+    SAVEFORMATIONANDSTART11AWAY(state, payload){
+      state.match.awayTeam.selected_formation = payload.selectedformation;
+      state.match.awayTeam.starting11 = JSON.stringify(payload.starting11);
+      localStorage.setItem('match',JSON.stringify(state.match));
+    }
   },
   actions: {
   },
